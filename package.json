@@ -1,0 +1,34 @@
+{
+  "name": "possystem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "cd server && node server",
+    "server": "cd server && nodemon server",
+    "client": "cd client && npm run start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && CI=false npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "bcryptjs": "^2.4.3",
+    "common.js": "^1.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "formik": "^2.2.9",
+    "gridfs-stream": "^1.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12",
+    "multer": "^1.4.3",
+    "multer-gridfs-storage": "^5.0.2",
+    "nodemon": "^2.0.14",
+    "react-file-base64": "^1.0.3",
+    "scss": "^0.2.4",
+    "yup": "^1.0.2"
+  }
+}
