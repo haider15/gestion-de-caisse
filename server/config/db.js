@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 // const MONGO_URI =
 //   'mongodb+srv://vi123:BQH3rijyjtXEPq9T@cluster0.cb3mx.mongodb.net/proshop?retryWrites=true&w=majority'
 
-const MONGO_URI = "mongodb+srv://hoangkui:1111@pos-cnpm.y3hmx.mongodb.net/test";
+const MONGO_URI = "mongodb://localhost:27017";
 
 const connectDB = async () => {
   try {

@@ -25,7 +25,7 @@ const Cartreview = (props) => {
             <div className="cart-item-content-bottom-price">
               <p className="cart-item-content-bottom-price-origin">
                 {/* <VscChromeClose  className="iconX" size={25}/>  */}
-                {props.item.price} .000 Đ
+                {props.item.price} .000 D
               </p>
               {/* <p className="cart-item-content-bottom-price-tax">(Incl.tax 10% = Kr 12.30)</p> */}
             </div>

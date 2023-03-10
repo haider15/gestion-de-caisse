@@ -54,8 +54,8 @@ const AddType = () => {
     addTypeProduct(data);
     closeModal();
     swal(
-      "Thành công",
-      `Đã thêm thành công loại ${newProduct.name} `,
+      "Succès",
+      `Type ajouté avec succès ${newProduct.name} `,
       "success"
     );
     // axios

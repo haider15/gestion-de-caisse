@@ -19,11 +19,11 @@ const MethodModal = (props) => {
       <Modal.Body>
         <Card className='my-3 method' onClick={chooseDirectMethod}>
           <Card.Title className='my-3 modal-card-title'>
-            Dùng tại quán
+          Utilisé au magasin
           </Card.Title>
         </Card>
         <Card className='my-3 method' onClick={chooseAwayMethod}>
-          <Card.Title className='my-3 modal-card-title'>Gọi mang về</Card.Title>
+          <Card.Title className='my-3 modal-card-title'>Appelez pour emporter</Card.Title>
         </Card>
       </Modal.Body>
     </Modal>

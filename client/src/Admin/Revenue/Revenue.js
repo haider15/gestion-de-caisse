@@ -30,15 +30,15 @@ export default function Revenue() {
     const choices = [
         {
             id: 1,
-            name: "Người gọi món"
+            name: "Commandeur"
         },
         {
             id: 2,
-            name: "Hình thức"
+            name: "Former"
         },
         {
             id: 3,
-            name: "Đơn giá"
+            name: "Prix ​​unitaire"
         }
     ]
 
@@ -103,10 +103,10 @@ export default function Revenue() {
                 <div>
                     <Container className="showlist" fluid>
                         <Row>
-                            <Col sm={1.9}> <h2 className="columlist">Người gọi món</h2></Col>
-                            <Col sm={4.2}> <h2 className="columlist">Trạng thái</h2></Col>
-                            <Col sm={4.4}> <h2 className="columlist">Hình thức</h2></Col>
-                            <Col sm={1.3}> <h2 className="columlist">Đơn giá</h2></Col>
+                            <Col sm={1.9}> <h2 className="columlist">Commandeur</h2></Col>
+                            <Col sm={4.2}> <h2 className="columlist">Statut</h2></Col>
+                            <Col sm={4.4}> <h2 className="columlist">Former</h2></Col>
+                            <Col sm={1.3}> <h2 className="columlist">Prix ​​unitaire</h2></Col>
                         </Row>
                     </Container>
                     <div className="contentlist_Revenue">

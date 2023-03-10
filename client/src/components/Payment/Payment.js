@@ -212,7 +212,7 @@ const Payment = () => {
                 className="mb-3"
                 controlId="exampleForm.ControlTextarea1"
               >
-                <Form.Label>Địa chỉ</Form.Label>
+                <Form.Label>Adresse</Form.Label>
                 <Form.Control
                   onChange={handleaddressChange}
                   type="text"
@@ -226,7 +226,7 @@ const Payment = () => {
                 ) : null}
               </Form.Group>
               <Form.Group controlId="exampleForm.ControlTextarea2">
-                <Form.Label>Số điện thoại</Form.Label>
+                <Form.Label>Numéro de téléphone</Form.Label>
                 <Form.Control
                   onChange={handlenumberChange}
                   type="text"

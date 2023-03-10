@@ -101,7 +101,7 @@ const TypeModal = ({ index, openPlease, ref }) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Thêm loại sản phẩm</h2>
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Plus de catégories de produits</h2>
         <button className="modal-close" onClick={closeModal}>
           close
         </button>
@@ -137,7 +137,7 @@ const TypeModal = ({ index, openPlease, ref }) => {
             style={{ display: isEdit ? "block" : "none" }}
             className="input-box input-box-submit"
             type="submit"
-            value="Lưu lại"
+            value="Sauvegarder"
           />
           {/* <button>the modal</button> */}
         </form>

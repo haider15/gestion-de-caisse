@@ -1,49 +1,33 @@
-import React, { useState } from "react"
-import "./login.css"
-import axios from "axios"
-import { Link, useHistory } from "react-router-dom"
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Login = ({ setLoginUser }) => {
+import './login.css'
 
-    const history = useHistory()
+export default function login() {
 
-    const [user, setUser] = useState({
-        email: "",
-        password: ""
-    })
-
-    const handleChange = e => {
-        const { name, value } = e.target
-        setUser({
-            ...user,
-            [name]: value
-        })
-
-
-    }
-
-    const login = () => {
-        axios.post("http://localhost:9002/login", user)
-            .then(res => {
-                alert(res.data.message)
-                setLoginUser(res.data.user)
-                history.push("/")
-            })
-    }
-
+    
     return (
-        <div className="body">
-            <div className="login">
-                <h1>Login</h1>
-                <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Enter your Email"></input>
-                <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Enter your Password" ></input>
-
-                <div className="button" onClick={login} >  <Link to="/">Login </Link></div>
-                {/* <div>or</div>
-            <div className="button" onClick={() => history.push("/register")}>Register</div> */}
-            </div>
+        <div className="login">
+            <h2>Sign in to us</h2>
+            <form action="/home">
+                <p>
+                    <label>Username or email address</label><br/>
+                    <input type="text" name="first_name" required />
+                </p>
+                <p>
+                    <label>Password</label>
+                    <Link to="/forget-password"><label className="right-label">Forget password?</label></Link>
+                    <br/>
+                    <input type="password" name="password" required />
+                </p>
+                <p>
+                    <button id="sub_btn" type="submit">Login</button>
+                </p>
+            </form>
+            <footer>
+                <p>First time? <Link to="/register">Create an account</Link>.</p>
+                <p><Link to="/">Back to Homepage</Link>.</p>
+            </footer>
         </div>
     )
 }
-
-export default Login

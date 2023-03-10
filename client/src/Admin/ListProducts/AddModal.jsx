@@ -56,9 +56,9 @@ const AddModal = () => {
       newProduct.count === 0
     ) {
       swal(
-        "Điền đúng hộ mình",
-        "Bạn cần điền đầy đủ hoặc chính xác thông tin",
-        "warning"
+        "Remplissez-le correctement",
+        "Vous devez remplir les informations complètement ou correctement",
+        "avertissement"
       );
       return;
     }
@@ -107,7 +107,7 @@ const AddModal = () => {
             <div className="input-container-both">
               <div className="input-container input-container-img">
                 <ButtonUpload
-                  text="Chọn ảnh"
+                  text="Choisissez une photo"
                   src={img}
                   setProductUpdate={setNewProduct}
                   productUpdate={newProduct}
@@ -196,7 +196,7 @@ const AddModal = () => {
           <input
             className="input-box input-box-submit"
             type="submit"
-            value="Thêm"
+            value="Plus"
           />
           {/* <button>the modal</button> */}
         </form>

@@ -29,7 +29,7 @@ const upload = multer({
 });
 
 // const multer = require("multer");
-// var storage = multer.diskStorage({
+// var ds = multer.diskStorage({ 
 //   destination: function (req, file, cb) {
 //     cb(null, "../uploads");
 //   },

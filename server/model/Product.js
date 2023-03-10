@@ -9,7 +9,7 @@ const ProductSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "TypeProduct",
   },
-  price: {
+  price: { 
     type: Number,
     required: true,
   },
