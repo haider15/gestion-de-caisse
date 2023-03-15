@@ -88,6 +88,10 @@ const AddModal = () => {
         <i className="fas fa-plus"></i>
         ajout des plat
       </button>
+      <button onClick={openModal} className="listProducts-heading-add-product">
+        <i className="fas fa-plus"></i>
+        logout
+      </button>
       <Modal
         // style={{ width: 600 }}
         // className="Modal"

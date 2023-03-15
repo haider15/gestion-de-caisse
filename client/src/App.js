@@ -15,6 +15,7 @@ import KingOfFilter from './components/Header/KingOfFilter'
 import Serveur from './Admin/serveur/serveur'
 import Login from './components/Login/login'
 // import NavBar from './components/navbar/navbar'
+// import Registration from './components/Login/Registration'
 function App() {
   const [idType, setIdType] = useState(0)
   function ChangeForIdType(id) {
@@ -38,6 +39,7 @@ function App() {
           <Route path='/revenue' component={Revenue} />
           <Route path='/login' component={Login} />
           <Route path="/ser" component={Serveur} />
+          {/* <Route path='/Reg' component={Registration} /> */}
         </Switch>
       </Router>
     </>

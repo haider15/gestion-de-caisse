@@ -21,6 +21,8 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 // app.use(fileupload());
 app.use('/uploads', express.static('uploads'));
 
+////////////////////
+app.use("/api/users/", require("./routers/user"));
 app.use('/api/product/', productRouter);
 app.use('/api/typeproduct/', typeProductRouter);
 app.use('/api/orders', orderRoutes);

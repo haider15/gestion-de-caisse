@@ -8,6 +8,33 @@ import AddModal from "./AddModal";
 import AddType from "./AddType";
 import SingleProduct from "./SingleProduct";
 
+// onLogOut= () => {
+//   this.setState({
+//     isLoading: true,
+//   });
+//   const obj = getFromStorage("login_app");
+//   if (obj && obj.token) {
+//     const { token } = obj;
+
+//     fetch("/api/account/logout?token=" + token)
+//       .then((res) => res.json())
+//       .then((json) => { 
+//         if (json.success) {
+//           setInStorage("login_app", { token: "" });
+//           this.setState({
+//             token: "",
+//             isLoading: false,
+//           });
+//         }
+//       });
+//   } else {
+//     this.setState({
+//       isLoading: false,
+//     });
+//   }
+// }
+
+
 // import { useHistory } from "react-router-dom";
 const ListProducts = () => {
   const {
@@ -87,11 +114,11 @@ const ListProducts = () => {
           </div>
         )}
         {/* <button
-          onClick={openModalAdd}
+          onClick={onLogOut}
           className="listProducts-heading-add-product"
         >
           <i className="fas fa-plus"></i>
-          Thêm sản phẩm
+        ok
         </button> */}
         <AddType />
         {selectFilter > -1 && (
@@ -107,6 +134,7 @@ const ListProducts = () => {
       <div className="listProducts-content">
         <table className="listProducts-content-table">
           <tbody className="tbody-nth">
+          
             <tr className="listProducts-content-row-heading-table">
               <th className="listProducts-content-row-heading">SKU</th>
               <th className="listProducts-content-row-heading">Nom du produit</th>
