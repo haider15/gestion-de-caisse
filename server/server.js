@@ -23,6 +23,7 @@ app.use('/uploads', express.static('uploads'));
 
 ////////////////////
 app.use("/api/users/", require("./routers/user"));
+app.use("/api/use/", require("./routers/auth"));
 app.use('/api/product/', productRouter);
 app.use('/api/typeproduct/', typeProductRouter);
 app.use('/api/orders', orderRoutes);

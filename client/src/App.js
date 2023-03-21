@@ -14,6 +14,8 @@ import Revenue from './Admin/Revenue/Revenue'
 import KingOfFilter from './components/Header/KingOfFilter'
 import Serveur from './Admin/serveur/serveur'
 import Login from './components/Login/login'
+import NavBar from './components/navbar/navbar'
+import Signup from './components/Login/Signup'
 // import NavBar from './components/navbar/navbar'
 // import Registration from './components/Login/Registration'
 function App() {
@@ -23,22 +25,22 @@ function App() {
   }
 
   return (
-    
+
     <>
       <Router>
+        {/* <NavBar /> */}
         <Switch>
           <Route exact path='/'>
             <GlobalState>
               <ShowCart />
-              <KingOfFilter x={ChangeForIdType} typeId={idType}/>
-            </GlobalState>
-            {/* <NavBar /> */}
-          </Route>
+              <KingOfFilter x={ChangeForIdType} typeId={idType} />
+            </GlobalState>          </Route>
           <Route path='/payment' component={Payment} />
           <Route path='/admin' component={Admin} />
           <Route path='/revenue' component={Revenue} />
           <Route path='/login' component={Login} />
           <Route path="/ser" component={Serveur} />
+          <Route path="/Sig" component={Signup} />
           {/* <Route path='/Reg' component={Registration} /> */}
         </Switch>
       </Router>

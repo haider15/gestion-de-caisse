@@ -9,6 +9,34 @@ const AddModal = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   let subtitle;
 
+  const logout = () => {
+    fetch("http://localhost:5000/api/users/login", {
+      method: "POST",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data, "userRegister");
+      if (data.status != "ok") {
+        alert("login successful");
+        localStorage.removeItem('loggedIn');
+        console.log('loggedIn');
+        window.localStorage.removeItem("loggedIn", false);
+        window.location.href = "/login";
+
+      }
+    });
+}
+///////////////////////////////////////
+
+
+
+///////////////////////////////////////
   function openModal() {
     setIsOpen(true);
   }
@@ -88,7 +116,7 @@ const AddModal = () => {
         <i className="fas fa-plus"></i>
         ajout des plat
       </button>
-      <button onClick={openModal} className="listProducts-heading-add-product">
+      <button onClick={logout} className="listProducts-heading-add-product">
         <i className="fas fa-plus"></i>
         logout
       </button>

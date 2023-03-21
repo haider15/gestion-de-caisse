@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../model/user");
+const { User  } = require("../model/user");
 const UserSession = require("../model/UserSession");
-
+const bcrypt = require("bcrypt");
 
 
 
@@ -21,30 +21,40 @@ router.post("/register", (req, res) => {
     });
   }
 });
+///////////////////////////////
 
-router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    const user = await User.find({ email, password });
-    if (user.length > 0) {
-      const currentUser = {
-        name: user[0].name,
-        email: user[0].email,
-        _id: user[0].Id,
-      };
-      res.status(200).send(currentUser);
-    } else {
-      res.status(400).json({
-        message: "Login Failed",
-      });
-    }
-  } catch (error) {
-    res.status(404).json({
-      message: "Something Went wrong",
-    });
-  }
-});
+// router.post("/login", async (req, res) => {
+//   try {
+//     const { error } =  validate(req.body);
+//     if (error)
+//       return res.status(400).send({ message: error.details[0].message });
 
+//     const user = await User.findOne({ email: req.body.email });
+//     if (!user)
+//       return res.status(401).send({ message: "Invalid Email or Password" });
+
+//     const validPassword = await bcrypt.compare(
+//       req.body.password,
+//       user.password
+//     );
+//     if (!validPassword)
+//       return res.status(401).send({ message: "Invalid Email or Password" });
+
+//     const token = user.generateAuthToken();
+//     res.status(200).send({ data: token, message: "logged in successfully" });
+//   } catch (error) {
+//     res.status(500).send({ message: "Internal Server Error" });
+//   }
+// });
+
+// var  validate = (data) => {
+//   const schema = Joi.object({
+//     email: Joi.string().email().required().label("Email"),
+//     password: Joi.string().required().label("Password"),
+//   });
+//   return schema.validate(data);
+// };
+//////////////////////////////
 router.get("/getallusers", async (req, res) => {
   try {
     const users = await User.find({});
@@ -93,16 +103,16 @@ router.post("/deleteuser", async (req, res) => {
 //       return res.send({
 //         success: true,
 //         message: "good",
-       
+
 //       });
 //     }
 //   );
 // });
 
 
-router.get('/logout',(req,res)=>{
+router.post('/logout', (req, res) => {
   console.log('hello my logout page');
-  res.clearCookie('jwtoken',{path:'/'});
+  res.clearCookie('jwtoken', { path: '/login' });
   res.status(200).send('User logout');
 })
 

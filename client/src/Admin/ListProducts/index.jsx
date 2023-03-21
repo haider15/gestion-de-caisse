@@ -2,7 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { adminContext } from "../AdminContext";
 import Filter from "../Header/Filter";
 import swal from "sweetalert";
+/////////////////////////////////
 
+import { Navbar, Nav, Container, Image, NavDropdown } from "react-bootstrap";
+// import { useDispatch, useSelector } from "react-redux";
+import { LinkContainer } from "react-router-bootstrap";
+
+//////////////////////////////////
 import "../index-hoangkui.css";
 import AddModal from "./AddModal";
 import AddType from "./AddType";
@@ -36,6 +42,18 @@ import SingleProduct from "./SingleProduct";
 
 
 // import { useHistory } from "react-router-dom";
+
+
+ const logoutUser = () => (dispatch) => {
+  localStorage.removeItem("loggedIn");
+  window.location.href = "/login";
+};
+
+// const dispatch = useDispatch();
+//   const userState = useSelector((state) => state.loginUserReducer);
+//   const { currentUser } = userState;
+
+
 const ListProducts = () => {
   const {
     products,
@@ -77,6 +95,8 @@ const ListProducts = () => {
   console.log("??????", typeProducts, isLoading, products);
   return (
     <>
+      
+
       {/* {filter} */}
       <div className="listProducts-heading">
         {/* <h3 className="listProducts-heading-title">Danh sách sản phẩm</h3> */}
@@ -131,6 +151,9 @@ const ListProducts = () => {
         )}
         <AddModal />
       </div>
+
+
+    
       <div className="listProducts-content">
         <table className="listProducts-content-table">
           <tbody className="tbody-nth">
