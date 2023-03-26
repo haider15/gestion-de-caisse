@@ -1,11 +1,12 @@
-import { useState } from "react";
+
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import { useHistory } from "react-router-dom"
+import { useState } from "react";
 
-const Login = () => {
-	const [data, setData] = useState({ email: "", password: "" });
+const Ajoutserveur = () => {
+	const [data, setData] = useState({ firstName: "", lastName: "", email:"",password:"" });
 	const [error, setError] = useState("");
 	const  navigate = useHistory()
 	const handleChange = ({ currentTarget: input }) => {
@@ -16,12 +17,12 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:5000/api/users/login";
+			const url = "http://localhost:5000/api/users/register";
 			console.log(data)
 			const {data: res } = await axios.post(url, data);
 			console.log(data);
 			localStorage.setItem("token", res.data);
-			navigate.push('/admin');
+			navigate.push('/login');
 		} catch (error) {
 			if (
 				error.response &&
@@ -40,8 +41,27 @@ const Login = () => {
 					<form className={styles.form_container} onSubmit={handleSubmit}>
 						<h1>Login to Your Account</h1>
 						<input
+							type="text"
+							placeholder="firstName"
+							name="firstName"
+							onChange={handleChange}
+							value={data.firstName}
+							required
+							className={styles.input}
+						/>
+						<input
+							type="text"
+							placeholder="lastName"
+							name="lastName"
+							onChange={handleChange}
+							value={data.lastName}
+							required
+							className={styles.input}
+						/>
+
+<input
 							type="email"
-							placeholder="Email"
+							placeholder="email"
 							name="email"
 							onChange={handleChange}
 							value={data.email}
@@ -50,7 +70,7 @@ const Login = () => {
 						/>
 						<input
 							type="password"
-							placeholder="Password"
+							placeholder="password"
 							name="password"
 							onChange={handleChange}
 							value={data.password}
@@ -76,4 +96,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Ajoutserveur;

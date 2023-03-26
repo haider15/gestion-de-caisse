@@ -14,8 +14,9 @@ import Revenue from './Admin/Revenue/Revenue'
 import KingOfFilter from './components/Header/KingOfFilter'
 import Serveur from './Admin/serveur/serveur'
 import Login from './components/Login/login'
-import NavBar from './components/navbar/navbar'
-import Signup from './components/Login/Signup'
+import Navbar from './components/navbar/navbar'
+import ajoutserveur from './Admin/serveur/ajoutserveur'
+
 // import NavBar from './components/navbar/navbar'
 // import Registration from './components/Login/Registration'
 function App() {
@@ -39,8 +40,9 @@ function App() {
           <Route path='/admin' component={Admin} />
           <Route path='/revenue' component={Revenue} />
           <Route path='/login' component={Login} />
-          <Route path="/ser" component={Serveur} />
-          <Route path="/Sig" component={Signup} />
+          {/* <Route path="/ser" component={Serveur} /> */}
+          <Route path="/ajout" component={ajoutserveur} />
+          {/* <Route path="/nav" component={Navbar}/>  */}
           {/* <Route path='/Reg' component={Registration} /> */}
         </Switch>
       </Router>

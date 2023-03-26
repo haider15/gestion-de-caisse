@@ -2,13 +2,13 @@ const express = require("express");
 const router = express.Router();
 const { User  } = require("../model/user");
 const UserSession = require("../model/UserSession");
-const bcrypt = require("bcrypt");
+
 
 
 
 router.post("/register", (req, res) => {
-  const { name, email, password } = req.body;
-  const newUser = new User({ name, email, password });
+  const { firstName, lastName, email, password } = req.body;
+  const newUser = new User({ firstName,lastName, email, password });
   try {
     newUser.save();
     res.status(200).json({
@@ -21,40 +21,34 @@ router.post("/register", (req, res) => {
     });
   }
 });
-///////////////////////////////
 
-// router.post("/login", async (req, res) => {
-//   try {
-//     const { error } =  validate(req.body);
-//     if (error)
-//       return res.status(400).send({ message: error.details[0].message });
+router.post("/login", async (req, res) => {
+  try {
+  
+    const user = await User.findOne( {email:req.body.email} );
+    console.log(user)
+    if (!user) {
+        return res.status(404).send("user not found");
+    }
 
-//     const user = await User.findOne({ email: req.body.email });
-//     if (!user)
-//       return res.status(401).send({ message: "Invalid Email or Password" });
+    const correctPassword = await bcrypt.compare(req.body.password, user.password);
+    console.log(correctPassword)
+    if (correctPassword) {
+        return res.status(400).json("incorrect password");
+    }
+    const token = user.generateAuthToken();
+    
+    res.status(200).send({ data: token, message: "logged in successfully" });
+    console.log(token);
+    console.log("log is succ");
+  } catch (err) {
+    console.log(err);
+    return res.status(500).send(err.message);
+  }
+});
 
-//     const validPassword = await bcrypt.compare(
-//       req.body.password,
-//       user.password
-//     );
-//     if (!validPassword)
-//       return res.status(401).send({ message: "Invalid Email or Password" });
 
-//     const token = user.generateAuthToken();
-//     res.status(200).send({ data: token, message: "logged in successfully" });
-//   } catch (error) {
-//     res.status(500).send({ message: "Internal Server Error" });
-//   }
-// });
 
-// var  validate = (data) => {
-//   const schema = Joi.object({
-//     email: Joi.string().email().required().label("Email"),
-//     password: Joi.string().required().label("Password"),
-//   });
-//   return schema.validate(data);
-// };
-//////////////////////////////
 router.get("/getallusers", async (req, res) => {
   try {
     const users = await User.find({});

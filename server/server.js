@@ -6,6 +6,7 @@ const productRouter = require('./routers/product');
 const typeProductRouter = require('./routers/typeProduct');
 const orderRoutes = require('./routers/orderRoutes');
 const revenueRoutes = require('./routers/revenueRouter');
+require("dotenv").config();
 // const fileUpload = require("express-fileupload");
 const app = express();
 
@@ -23,7 +24,8 @@ app.use('/uploads', express.static('uploads'));
 
 ////////////////////
 app.use("/api/users/", require("./routers/user"));
-app.use("/api/use/", require("./routers/auth"));
+app.use("/api/serveur/", require("./routers/serveur"));
+// app.use("/api/use/", require("./routers/auth"));
 app.use('/api/product/', productRouter);
 app.use('/api/typeproduct/', typeProductRouter);
 app.use('/api/orders', orderRoutes);

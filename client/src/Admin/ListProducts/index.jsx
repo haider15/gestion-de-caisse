@@ -14,40 +14,13 @@ import AddModal from "./AddModal";
 import AddType from "./AddType";
 import SingleProduct from "./SingleProduct";
 
-// onLogOut= () => {
-//   this.setState({
-//     isLoading: true,
-//   });
-//   const obj = getFromStorage("login_app");
-//   if (obj && obj.token) {
-//     const { token } = obj;
 
-//     fetch("/api/account/logout?token=" + token)
-//       .then((res) => res.json())
-//       .then((json) => { 
-//         if (json.success) {
-//           setInStorage("login_app", { token: "" });
-//           this.setState({
-//             token: "",
-//             isLoading: false,
-//           });
-//         }
-//       });
-//   } else {
-//     this.setState({
-//       isLoading: false,
-//     });
-//   }
-// }
 
 
 // import { useHistory } from "react-router-dom";
 
 
- const logoutUser = () => (dispatch) => {
-  localStorage.removeItem("loggedIn");
-  window.location.href = "/login";
-};
+
 
 // const dispatch = useDispatch();
 //   const userState = useSelector((state) => state.loginUserReducer);
