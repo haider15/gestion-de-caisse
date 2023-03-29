@@ -50,7 +50,7 @@ const SingleProduct = ({ product, index }) => {
   const { _id, name, typeProduct, price, count, description, img } = product;
   const handleRemove = () => {
     swal({
-      title: "Are you sure?",
+      title: "Es-tu sûr?",
       text: "Vous ne pourrez pas restaurer si vous utilisez cette action.",
       icon: "warning",
       buttons: true,
@@ -167,7 +167,7 @@ const SingleProduct = ({ product, index }) => {
               </div>
               <div className="input-container">
                 <label htmlFor="" className="input-label">
-                  Quantité
+                Gategorie 
                 </label>
                 <select
                   disabled={isDisable}
@@ -211,7 +211,7 @@ const SingleProduct = ({ product, index }) => {
               </div>
               <div className="input-container">
                 <label htmlFor="" className="input-label">
-                  Décrire
+                  Description
                 </label>
                 <textarea
                   disabled={true}
@@ -229,7 +229,7 @@ const SingleProduct = ({ product, index }) => {
             style={{ display: isDisable ? "none" : "block" }}
             className="input-box input-box-submit"
             type="submit"
-            value="Lưu"
+            value="Modifier"
           />
           {/* <button>the modal</button> */}
         </form>

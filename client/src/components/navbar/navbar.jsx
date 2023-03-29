@@ -3,7 +3,7 @@
 // // import Provider from 'react-bootstrap/Provider'
 // import { useDispatch, useSelector } from "react-redux";
 // import { LinkContainer } from "react-router-bootstrap";
-// import { logoutUser } from "./useraction";
+
 // const NavBar = () => {
 //   const dispatch = useDispatch();
 //   const userState = useSelector((state) => state.loginUserReducer);
@@ -11,7 +11,6 @@
 //   return (
 //     <>
 //       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-//         <Provider>
 //           <Navbar.Brand>
 //             <Image
 //               src="images/logo.png"
@@ -29,9 +28,9 @@
 //                       <NavDropdown.Item>orders</NavDropdown.Item>
 //                     </LinkContainer>
 //                     <NavDropdown.Item
-//                       onClick={() => {
-//                         dispatch(logoutUser());
-//                       }}
+//                     //   onClick={() => {
+//                     //     dispatch(logoutUser());
+//                     //   }}
 //                     >
 //                       Logout
 //                     </NavDropdown.Item>
@@ -54,7 +53,7 @@
 //               </LinkContainer>
 //             </Nav>
 //           </Navbar.Collapse>
-//         </Provider>
+        
 //       </Navbar>
 //     </>
 //   );

@@ -65,7 +65,7 @@ const Login = () => {
 				</div>
 				<div className={styles.right}>
 					<h1>New Here ?</h1>
-					<Link to="/signup">
+					<Link to="/ajout">
 						<button type="button" className={styles.white_btn}>
 							Sing Up
 						</button>

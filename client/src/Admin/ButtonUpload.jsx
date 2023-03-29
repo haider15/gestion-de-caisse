@@ -46,7 +46,6 @@ const ButtonUpload = ({
       />
       <img
         src={imgPreview.preview}
-        alt="Ảnh xem trước"
         className="button-upload-preview"
       />
     </>

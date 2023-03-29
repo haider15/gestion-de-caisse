@@ -1,12 +1,11 @@
-
+import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import { useHistory } from "react-router-dom"
-import { useState } from "react";
 
-const Ajoutserveur = () => {
-	const [data, setData] = useState({ firstName: "", lastName: "", email:"",password:"" });
+const Loginser = () => {
+	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
 	const  navigate = useHistory()
 	const handleChange = ({ currentTarget: input }) => {
@@ -17,7 +16,7 @@ const Ajoutserveur = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:5000/api/users/register";
+			const url = "http://localhost:5000/api/serveur//login";
 			console.log(data)
 			const {data: res } = await axios.post(url, data);
 			console.log(data);
@@ -39,29 +38,10 @@ const Ajoutserveur = () => {
 			<div className={styles.login_form_container}>
 				<div className={styles.left}>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Login to Your User Account </h1>
+						<h1>Login to Your user Account</h1>
 						<input
-							type="text"
-							placeholder="firstName"
-							name="firstName"
-							onChange={handleChange}
-							value={data.firstName}
-							required
-							className={styles.input}
-						/>
-						<input
-							type="text"
-							placeholder="lastName"
-							name="lastName"
-							onChange={handleChange}
-							value={data.lastName}
-							required
-							className={styles.input}
-						/>
-
-<input
 							type="email"
-							placeholder="email"
+							placeholder="Email"
 							name="email"
 							onChange={handleChange}
 							value={data.email}
@@ -70,7 +50,7 @@ const Ajoutserveur = () => {
 						/>
 						<input
 							type="password"
-							placeholder="password"
+							placeholder="Password"
 							name="password"
 							onChange={handleChange}
 							value={data.password}
@@ -85,7 +65,7 @@ const Ajoutserveur = () => {
 				</div>
 				<div className={styles.right}>
 					<h1>New Here ?</h1>
-					<Link to="/signup">
+					<Link to="/ajout">
 						<button type="button" className={styles.white_btn}>
 							Sing Up
 						</button>
@@ -96,4 +76,4 @@ const Ajoutserveur = () => {
 	);
 };
 
-export default Ajoutserveur;
+export default Loginser;

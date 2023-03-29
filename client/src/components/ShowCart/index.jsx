@@ -41,12 +41,12 @@ const ShowCart = () => {
         <div className="cart-header">
           <p className="cart-header-title">
             <i className="fas fa-shopping-cart"></i>
-            Your Cart ({
+            Votre panier ({
               context.cart.reduce((count, curItem) => {
                 return count + curItem.quantity;
             }, 0)})
           </p>
-          <button className="cart-header-button">DINE IN</button>
+          {/* <button className="cart-header-button">DINE IN</button> */}
         </div>
         <ul className="cart-list">
           {context.cart.map((cartItem, index)=> 
@@ -65,7 +65,7 @@ const ShowCart = () => {
                 <p className="cart-payment-total-origin">
                   {context.cart.reduce((total, curr) => {
                     return total += curr.quantity* curr.price;
-                  }, 0)} .000 Đ</p>
+                  }, 0)} .000 D</p>
                 {/* <p className="cart-payment-total-tax">
                   (Incl.tax 10% = Kr 12.30)
                 </p> */}
@@ -73,7 +73,7 @@ const ShowCart = () => {
             }
           </div>
           <Link to={{ pathname: "/payment" , state: {cartcontext :context.cart }}}>
-          <button className="cart-payment-button">PAYMENT</button>
+          <button className="cart-payment-button">PAIEMENT</button>
           </Link>
         </div>
       </div>

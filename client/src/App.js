@@ -12,10 +12,11 @@ import Payment from './components/Payment/Payment'
 import Admin from './Admin'
 import Revenue from './Admin/Revenue/Revenue'
 import KingOfFilter from './components/Header/KingOfFilter'
-import Serveur from './Admin/serveur/serveur'
+import Serveur from './Admin/serveur/Loginser'
 import Login from './components/Login/login'
 import Navbar from './components/navbar/navbar'
 import ajoutserveur from './Admin/serveur/ajoutserveur'
+import Loginser from './Admin/serveur/Loginser'
 
 // import NavBar from './components/navbar/navbar'
 // import Registration from './components/Login/Registration'
@@ -42,7 +43,8 @@ function App() {
           <Route path='/login' component={Login} />
           {/* <Route path="/ser" component={Serveur} /> */}
           <Route path="/ajout" component={ajoutserveur} />
-          {/* <Route path="/nav" component={Navbar}/>  */}
+          <Route path="/nav" component={Navbar}/> 
+          <Route path="/loginser" component={Loginser}/> 
           {/* <Route path='/Reg' component={Registration} /> */}
         </Switch>
       </Router>

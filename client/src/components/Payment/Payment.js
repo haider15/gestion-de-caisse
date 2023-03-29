@@ -29,6 +29,8 @@ const Payment = () => {
   cartcontext.map((cartItem, index) => {
     total = total + cartItem.price * cartItem.quantity;
   });
+  
+
   let ordername = name;
   let orderusingMethod = usingMethod;
   let ListItems = [];
@@ -120,7 +122,7 @@ const Payment = () => {
           OrderItems: ListItems,
         })
         .then((res) => {
-          history.push("/");
+          // history.push("/");
           console.log(res.data);
         })
         .catch((error) => console.log(error));
@@ -137,30 +139,30 @@ const Payment = () => {
         <Form className="form-holder">
           <div className="form-content">
             <div className="form-items">
-              <h3>Payment Check</h3>
-              <p>Fill in the data below.</p>
+              <h3>Chèque de paiement</h3>
+              <p>Remplissez les données ci-dessous.</p>
               <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>Tên</Form.Label>
+                <Form.Label>Nom</Form.Label>
                 <Form.Control
                   onChange={handlenameChange}
                   type="text"
-                  placeholder="Nguyễn Văn A"
+                  placeholder="table A"
                   value={name}
                 />
                 {nameerror ? (
                   <div className="invalid-feedback">
-                    This field can not be empty
+                   ce champ ne peut pas être vide
                   </div>
                 ) : null}
               </Form.Group>
               <Form.Group controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Số bàn</Form.Label>
+                <Form.Label>Nombre de tables</Form.Label>
                 <Form.Control
                   as="select"
                   value={table}
                   onChange={handletableChange}
                 >
-                  <option>Select the table</option>
+                  <option>Sélectionnez le table</option>
                   <option value="1">01</option>
                   <option value="2">02</option>
                   <option value="3">03</option>
@@ -170,16 +172,16 @@ const Payment = () => {
                 </Form.Control>
                 {tableerror ? (
                   <div className="invalid-feedback">
-                    This field can not be empty
+                   ce champ ne peut pas être vide
                   </div>
                 ) : null}
               </Form.Group>
               <div className="buttons-list">
                 <Link to="/">
-                  <Button className="secondary">Back to Shop</Button>
+                  <Button className="secondary">Retour à la boutique</Button>
                 </Link>
                 <Button className="primary" onClick={updateState}>
-                  Next
+                Suivant
                 </Button>
               </div>
             </div>
@@ -189,22 +191,22 @@ const Payment = () => {
         <Form className="form-holder">
           <div className="form-content">
             <div className="form-items">
-              <h3>Payment Check</h3>
-              <p>Fill in the data below.</p>
+              <h3>Chèque de paiement</h3>
+              <p>Remplissez les données ci-dessous.</p>
               <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
               >
-                <Form.Label>Tên</Form.Label>
+                <Form.Label>Nom</Form.Label>
                 <Form.Control
                   onChange={handlenameChange}
                   type="text"
-                  placeholder="Nguyễn Văn A"
+                  placeholder="table A"
                   value={name}
                 />
                 {nameerror ? (
                   <div className="invalid-feedback">
-                    This field can not be empty
+                    ce champ ne peut pas être vide
                   </div>
                 ) : null}
               </Form.Group>
@@ -221,7 +223,7 @@ const Payment = () => {
                 />
                 {addresserror ? (
                   <div className="invalid-feedback">
-                    This field can not be empty
+                  ce champ ne peut pas être vide
                   </div>
                 ) : null}
               </Form.Group>
@@ -235,16 +237,16 @@ const Payment = () => {
                 />
                 {numbererror ? (
                   <div className="invalid-feedback">
-                    This field can not be empty
+                    ce champ ne peut pas être vide
                   </div>
                 ) : null}
               </Form.Group>
               <div className="buttons-list">
                 <Link to="/">
-                  <Button className="secondary">Back to Shop</Button>
+                  <Button className="secondary">Retour à la boutique</Button>
                 </Link>
                 <Button className="primary" onClick={updateState}>
-                  Next
+                Suivant
                 </Button>
               </div>
             </div>
@@ -254,8 +256,8 @@ const Payment = () => {
         <Form className="form-holder">
           <div className="form-content">
             <div className="form-items">
-              <h3>Review your cart</h3>
-              <p>Check all the products below.</p>
+              <h3>Vérifiez votre panier</h3>
+              <p>Vérifiez tous les produits ci-dessous.</p>
               <ul className="payment-cart-list">
                 {cartcontext.map((cartItem, index) => {
                   return (
@@ -268,14 +270,14 @@ const Payment = () => {
                 })}
               </ul>
               <div className="payment-total-price">
-                Total Price: {total} .000 Đ
+              Prix ​​total: {total} .000 D
               </div>
               <div className="buttons-list">
                 <Button className="secondary" onClick={backState}>
-                  Back
+                 Retour
                 </Button>
                 <Button className="primary" onClick={updateState}>
-                  Next
+                Suivant
                 </Button>
               </div>
             </div>
@@ -285,20 +287,20 @@ const Payment = () => {
         <Form className="form-holder">
           <div className="form-content">
             <div className="form-items">
-              <h3>Review your Order</h3>
-              <p>Check all the information you've filled .</p>
+              <h3>Vérifiez votre commande</h3>
+              <p>Vérifiez toutes les informations que vous avez remplies .</p>
               {usingMethod === "Directly" ? (
                 <div>
                   <div className="payment-review">
-                    <strong>Customer's name:</strong>
+                    <strong>Nom du client:</strong>
                     <span>{name}</span>
                   </div>
                   <div className="payment-review">
-                    <strong>Table's number:</strong>
+                    <strong>Numéro de table:</strong>
                     <span>{table}</span>
                   </div>
                   <div className="payment-review">
-                    <strong>Order Items:</strong>
+                    <strong>Les commandes:</strong>
                     <ul className="payment-cart-list">
                       {cartcontext.map((cartItem, index) => {
                         return (
@@ -315,19 +317,19 @@ const Payment = () => {
               ) : usingMethod === "Online" ? (
                 <div>
                   <div className="payment-review">
-                    <strong>Customer's name:</strong>
+                    <strong>Nom du client:</strong>
                     <span>{name}</span>
                   </div>
                   <div className="payment-review">
-                    <strong>Address:</strong>
+                    <strong>Adresse:</strong>
                     <span>{address}</span>
                   </div>
                   <div className="payment-review">
-                    <strong>Phone number:</strong>
+                    <strong>Numéro de téléphone:</strong>
                     <span>{number}</span>
                   </div>
                   <div className="payment-review">
-                    <strong>Order Items:</strong>
+                    <strong>les commandes:</strong>
                     <ul className="payment-cart-list">
                       {cartcontext.map((cartItem, index) => {
                         return (
@@ -343,14 +345,14 @@ const Payment = () => {
                 </div>
               ) : null}
               <div className="payment-total-price">
-                Total Price: {total} .000 Đ
+              Prix ​​total: {total} .000 D
               </div>
               <div className="buttons-list">
                 <Button className="secondary" onClick={backState}>
-                  Back
+                  Retour
                 </Button>
                 <Button className="primary" onClick={handleSubmit}>
-                  Submit
+                  passer
                 </Button>
               </div>
             </div>

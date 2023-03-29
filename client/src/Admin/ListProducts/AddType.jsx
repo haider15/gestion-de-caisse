@@ -58,6 +58,8 @@ const AddType = () => {
       `Type ajouté avec succès ${newProduct.name} `,
       "success"
     );
+    window.location.reload(true)
+    // window.location.reload(true)
     // axios
     //   .post("http://localhost:5000/api/product", newProduct)
     //   .then((res) => console.log(res))
@@ -68,7 +70,7 @@ const AddType = () => {
     <>
       <button onClick={openModal} className="listProducts-heading-add-product">
         <i className="fas fa-plus"></i>
-        catégories de produits
+        catégories des produits
       </button>
       <Modal
         // style={{ width: 600 }}
@@ -89,7 +91,7 @@ const AddType = () => {
             <div className="input-container-both">
               <div className="input-container input-container-img">
                 <ButtonUpload
-                  text="Chọn ảnh"
+                  text="Choisissez une photo"
                   src={img}
                   setProductUpdate={setNewProduct}
                   productUpdate={newProduct}
@@ -115,7 +117,7 @@ const AddType = () => {
           <input
             className="input-box input-box-submit"
             type="submit"
-            value="Thêm"
+            value="ajouter"
           />
           {/* <button>the modal</button> */}
         </form>

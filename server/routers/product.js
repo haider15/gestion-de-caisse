@@ -89,7 +89,7 @@ router.post("/", upload.single("img"), async (req, res) => {
 // PUT http://localhost:5000/api/product/id
 // Update data len server
 router.put("/:id", upload.single("img"), async (req, res) => {
-  const { name, catelory, price, count, description } = req.body;
+  const {name,catelory, price ,count, description } = req.body;
   // Check name
   if (!name)
     return res
@@ -153,5 +153,28 @@ router.get("/:id", async (req, res) => {
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 });
+/////////////////////
 
+// router.put("stock/:id", async (req, res) => {
+//   const id =  req.params.id ;
+//   console.log(id);
+//     try{
+//       const Products = await Product.find({ProductCompanyName: id});
+//       res.json({Products});
+//     }catch(err){
+//       console.log(err, 'ProductsController.viewSpecificProducts error');
+//       res.status(500).json({
+//         errorMessage: 'Please try again later'
+//       })
+//     }
+// });
+
+
+
+
+
+
+
+
+//////////////////////////
 module.exports = router;

@@ -10,12 +10,12 @@ const AddModal = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   let subtitle;
   const navigate = useHistory()
-  
-///////////////////////////////////////
+
+  ///////////////////////////////////////
 
 
 
-///////////////////////////////////////
+  ///////////////////////////////////////
   function openModal() {
     setIsOpen(true);
   }
@@ -30,7 +30,7 @@ const AddModal = () => {
   function logout() {
     localStorage.clear();
     navigate.push('/login');
-}
+  }
   const { typeProducts, addProduct } = useContext(adminContext);
   // const fileInput = React.createRef();
   const [newProduct, setNewProduct] = useState({
@@ -69,10 +69,12 @@ const AddModal = () => {
       swal(
         "Remplissez-le correctement",
         "Vous devez remplir les informations complètement ou correctement",
-        "avertissement"
+        "warning"
       );
+      
       return;
     }
+ 
     const data = new FormData();
     data.append("img", newProduct.img);
     data.append("name", newProduct.name);
@@ -87,6 +89,12 @@ const AddModal = () => {
     console.log(newProduct);
     addProduct(data);
     closeModal();
+    swal(
+      "success",
+      "le plat est ajouter",
+      "success"
+    );
+    window.location.reload(true)
     // axios
     //   .post("http://localhost:5000/api/product", newProduct)
     //   .then((res) => console.log(res))
@@ -99,8 +107,8 @@ const AddModal = () => {
         <i className="fas fa-plus"></i>
         ajout des plat
       </button>
-      <button onClick={logout } className="listProducts-heading-add-product">
-        <i className="fas fa-plus"></i>
+      <button onClick={logout} className="listProducts-heading-add-product">
+        <i class="icon-signout"></i>
         logout
       </button>
       <Modal
@@ -145,7 +153,7 @@ const AddModal = () => {
               </div>
               <div className="input-container">
                 <label htmlFor="" className="input-label">
-                  Taper
+                  Categorie
                 </label>
                 <select
                   required
@@ -155,7 +163,7 @@ const AddModal = () => {
                   onChange={onChangeInputProduct}
                 >
                   <option value="" selected disabled hidden>
-                  Choisissez ici
+                    Choisissez ici
                   </option>
                   {typeProducts.map((typeProduct, index) => {
                     if (index !== 0)
@@ -169,7 +177,7 @@ const AddModal = () => {
               </div>
               <div className="input-container">
                 <label htmlFor="" className="input-label">
-                Prix ​​(mille)
+                  Prix ​​(DT)
                 </label>
                 <input
                   className="input-box"
@@ -182,7 +190,7 @@ const AddModal = () => {
               </div>
               <div className="input-container">
                 <label htmlFor="" className="input-label">
-                Quantité
+                  Quantité
                 </label>
                 <input
                   className="input-box"
@@ -195,7 +203,7 @@ const AddModal = () => {
               </div>
               <div className="input-container">
                 <label htmlFor="" className="input-label">
-                Décrire
+                  description
                 </label>
                 <textarea
                   type="text"
@@ -211,7 +219,7 @@ const AddModal = () => {
           <input
             className="input-box input-box-submit"
             type="submit"
-            value="Plus"
+            value="ajouter"
           />
           {/* <button>the modal</button> */}
         </form>

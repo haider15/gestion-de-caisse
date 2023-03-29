@@ -50,7 +50,7 @@ export default function ShowCard(props) {
             <Card.Body>
               <Card.Img className="imagefood" variant="bottom" src={props.image} />
               <Card.Title> {props.name} </Card.Title>
-              <Card.Text className="price"> {props.price}.000 Đ </Card.Text>
+              <Card.Text className="price"> {props.price}.000 DT </Card.Text>
               <Card.Link href="">
                 <BsCart2 className="iconcart" />
               </Card.Link>
@@ -77,18 +77,18 @@ export default function ShowCard(props) {
                   <div className="contentPopup">
                     <Row className="textBig" >
                       <Col md={3}>SKU</Col>
-                      <Col md={6}>Name</Col>
-                      <Col className="textright" md={3}>Price</Col>
+                      <Col md={6}>Nom</Col>
+                      <Col className="textright" md={3}>Prix</Col>
                     </Row>
                     <Row>
                       <Col md={3}>{props.SKU}</Col>
                       <Col md={6}>{props.name}</Col>
-                      <Col className="textright" md={3}>{props.price}.000 Đ</Col>
+                      <Col className="textright" md={3}>{props.price}.000 D</Col>
                     </Row>
                     <div>{props.description}</div>
                     <div className="textBig" >
                       <Row>
-                        <Col md={6}>Quantity :</Col>
+                        <Col md={6}>Quantité :</Col>
                         <Col className="textright" md={6}>
                           <ButtonDecrement className="iconPop" onClickFunc={decrementCounter} />
                           <Display message={counter} />
@@ -102,7 +102,7 @@ export default function ShowCard(props) {
                           onClick={props.context.addProductToCart.bind(this, { ...props.food, want: counter })}
                         >
                           <label style={{ textAlign: 'center', cursor: 'pointer' }}>
-                            <BsCart2 className="iconTotalPrice" />{counter * props.price} .000 Đ
+                            <BsCart2 className="iconTotalPrice" />{counter * props.price} .000 D
                           </label>
                         </div>
                       </div>

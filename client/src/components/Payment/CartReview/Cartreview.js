@@ -3,6 +3,11 @@ import { useState } from "react";
 
 const Cartreview = (props) => {
   const [number, setNumber] = useState(props.item.quantity);
+
+  
+
+  
+
   return (
     <>
       <li key={props.item.SKU} className="cart-item">
