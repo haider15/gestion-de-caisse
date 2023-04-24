@@ -48,6 +48,10 @@ const OrderSchema = new Schema({
   deliveredAt: {
     type: Date,
   },
+  Product: {
+    type: Schema.Types.ObjectId,
+    ref: "Product",
+  },
 })
 
 module.exports = mongoose.model('Order', OrderSchema)

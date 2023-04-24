@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import { useHistory } from "react-router-dom"
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 
 const Ajoutserveur = () => {
 	const [data, setData] = useState({ firstName: "", lastName: "", email:"",password:"" });
@@ -17,12 +17,12 @@ const Ajoutserveur = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:5000/api/users/register";
+			const url = "http://localhost:5000/api/serveur/";
 			console.log(data)
 			const {data: res } = await axios.post(url, data);
 			console.log(data);
 			localStorage.setItem("token", res.data);
-			navigate.push('/login');
+			navigate.push('/loginser');
 		} catch (error) {
 			if (
 				error.response &&
@@ -34,6 +34,12 @@ const Ajoutserveur = () => {
 		}
 	};
 
+	
+	useEffect(() => {
+	  if (!localStorage.getItem('token')) {
+		navigate.push('/login')
+	  }
+	}, []);
 	return (
 		<div className={styles.login_container}>
 			<div className={styles.login_form_container}>
@@ -51,10 +57,10 @@ const Ajoutserveur = () => {
 						/>
 						<input
 							type="text"
-							placeholder="lastName"
-							name="lastName"
+							placeholder="cin"
+							name="cin"
 							onChange={handleChange}
-							value={data.lastName}
+							value={data.cin}
 							required
 							className={styles.input}
 						/>

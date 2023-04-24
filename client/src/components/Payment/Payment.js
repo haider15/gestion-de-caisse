@@ -5,7 +5,7 @@ import { Link, useLocation, useHistory } from "react-router-dom";
 import Cartreview from "./CartReview/Cartreview";
 import axios from "axios";
 import "./index.css";
-
+import {useParams} from 'react-router-dom';
 const Payment = () => {
   const [ModalOpened, setModalOpened] = useState(true);
   const [usingMethod, setusingMethod] = useState(null);
@@ -24,11 +24,15 @@ const Payment = () => {
   const history = useHistory();
   const location = useLocation();
   const { cartcontext } = location.state;
+
   let total = 0;
+  let quantity=0;
   // eslint-disable-next-line array-callback-return
   cartcontext.map((cartItem, index) => {
     total = total + cartItem.price * cartItem.quantity;
+    quantity=total/cartItem.price
   });
+  
   
 
   let ordername = name;
@@ -104,15 +108,25 @@ const Payment = () => {
   const backState = () => {
     setState(state - 1);
   };
+  const { id } = useParams();
+
+
+
+
+  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+  
     const data = {
-      userName: ordername,
-      usingMethod: orderusingMethod,
-      totalPrice: total,
+      // userName: ordername,
+      // usingMethod: orderusingMethod,
+      // totalPrice: total,
       OrderItems: ListItems,
+      // quantity: quantity
     };
     console.log("vcc", data);
+    // console.log(quantity)
     try {
       await axios
         .post(`http://localhost:5000/api/orders/`, {
@@ -120,17 +134,48 @@ const Payment = () => {
           usingMethod: orderusingMethod,
           totalPrice: total,
           OrderItems: ListItems,
+          // quantity:quantity,
         })
+          // .post(`http://localhost:5000/api/produit/:prouductid`, {
+          //     OrderItems: ListItems, 
+          // })
         .then((res) => {
           // history.push("/");
-          console.log(res.data);
+          console.log("resultat",res.data);
         })
         .catch((error) => console.log(error));
     } catch (error) {
       console.log(error);
     }
   };
+////////////////////
 
+// const handleSubmit14 = async (event) => {
+//     event.preventDefault();
+   
+
+  
+//     const data = {
+//       quantity: quantity
+//     };
+//     console.log("vcc", data);
+//     console.log(quantity)
+//     try {
+//       await axios
+        
+//         .post(`http://localhost:5000/api/product/`+id, {
+//           quantity: quantity,
+//         })
+//         .then((res) => {
+//           // history.push("/");
+//           console.log(res.data);
+//         })
+//         .catch((error) => console.log(error));
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+  //////////////////
   return (
     <div>
       {ModalOpened ? (

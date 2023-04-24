@@ -1,4 +1,6 @@
 const Order = require('../model/Order')
+const Product = require('../model/Product')
+
 
 // @desc    Create new order
 // @route   POST /api/orders
@@ -78,7 +80,7 @@ const updateOrderToPaid = async (req, res) => {
 // @access  Private/Admin
 const updateOrderToDelivered = async (req, res) => {
   const order = await Order.findById(req.params.id)
-
+  console.log(order)
   if (order) {
     order.isDelivered = true
     order.deliveredAt = Date.now()
@@ -108,10 +110,86 @@ const getOrders = async (req, res) => {
   res.json(orders)
 }
 
+// const updateProduct = async (req, res) => {
+//  console.log(req.params.orderid)
+//  console.log(req.params.productid)
+
+
+//   if (!req.params.orderid || !req.params.productid) {
+//       return res
+//           .status(404)
+//           .json({
+//               "message": "Not found, Orderid and Productid are both required"
+//           });
+//   }
+//   Order
+//       .findById(req.params.orderid)
+//       .select('Product')
+//       .exec((error, Order) => {
+//         console.log(Order)
+//           if (!Order) {
+//               return res
+//                   .status(404)
+//                   .json({
+//                       "message": "Order not found"
+//                   });
+//           } else if (error) {
+//               return res
+//                   .status(400)
+//                   .json(error);
+//           }
+//           if (Order.Product && Order.Product.length > 0) {
+//               const Product = Order.Product.id(product);
+//               console.log(Product)
+//               const quantity=Order.findOne(req.quantity.Orderid)
+//               if (!Product) {
+//                   return res
+//                       .status(400) 
+//                       .json({
+//                           "message": "Product not found 2"
+//                       });
+//               } else {
+//                 Product.Count =Product.Count-quantity ;
+                 
+//                   Order.save((error, Order)=>{
+//                       if(error){
+//                           return res
+//                               .status(400)
+//                               .json(error);
+//                       }else{
+//                           res = {
+//                               Order: {
+//                                   name: Order.name,
+//                                   id: req.params.Orderid
+//                               },
+//                               Product
+//                           };
+//                           return res
+//                               .status(200)
+//                               .json(res);
+//                       }
+//                   });
+
+//               }
+//           } else {
+//               return res
+//                   .status(404)
+//                   .json({
+//                       "message": "No Product 1514 found"
+//                   });
+//           }
+
+//       });
+// }
+
+
+
+
 module.exports = {
   addOrderItems,
   getOrderById,
   updateOrderToPaid,
   updateOrderToDelivered,
   getOrders,
+  // updateProduct
 }

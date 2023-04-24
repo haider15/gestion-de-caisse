@@ -3,6 +3,7 @@ import { adminContext } from "../AdminContext";
 import Filter from "../Header/Filter";
 import swal from "sweetalert";
 /////////////////////////////////
+// const TabsControl = tw.div`flex flex-wrap bg-gray-200 px-2 py-2 rounded leading-none mt-12 pr-0 xl:mt-0 `;
 
 import { Navbar, Nav, Container, Image, NavDropdown } from "react-bootstrap";
 // import { useDispatch, useSelector } from "react-redux";
@@ -13,14 +14,16 @@ import "../index-hoangkui.css";
 import AddModal from "./AddModal";
 import AddType from "./AddType";
 import SingleProduct from "./SingleProduct";
+import SideNavBar from "../../components/sidebar/sidebar";
+// import {  useSelector } from "react-redux";
+
 
 
 
 
 // import { useHistory } from "react-router-dom";
 
-
-
+import { useHistory } from "react-router-dom";
 
 // const dispatch = useDispatch();
 //   const userState = useSelector((state) => state.loginUserReducer);
@@ -28,6 +31,7 @@ import SingleProduct from "./SingleProduct";
 
 
 const ListProducts = () => {
+
   const {
     products,
     getProducts,
@@ -66,6 +70,13 @@ const ListProducts = () => {
     });
   };
   console.log("??????", typeProducts, isLoading, products);
+
+  const navigate = useHistory()
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
+      navigate.push('/login')
+    }
+  }, []);
   return (
     <>
       
@@ -85,7 +96,7 @@ const ListProducts = () => {
                   : {}
               }
             >
-              All
+              menu
             </button>
             {typeProducts.map((typeProduct, index) => {
               if (index !== 0)
@@ -106,13 +117,7 @@ const ListProducts = () => {
             })}
           </div>
         )}
-        {/* <button
-          onClick={onLogOut}
-          className="listProducts-heading-add-product"
-        >
-          <i className="fas fa-plus"></i>
-        ok
-        </button> */}
+      
         <AddType />
         {selectFilter > -1 && (
           <button
@@ -124,7 +129,6 @@ const ListProducts = () => {
         )}
         <AddModal />
       </div>
-
 
     
       <div className="listProducts-content">

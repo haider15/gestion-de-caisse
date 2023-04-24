@@ -3,6 +3,7 @@ const router = express.Router();
 const Product = require("../model/Product");
 
 const multer = require("multer");
+const Order = require("../model/Order");
 
 const fileFilter = (req, file, cb) => {
   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
@@ -155,26 +156,28 @@ router.get("/:id", async (req, res) => {
 });
 /////////////////////
 
-// router.put("stock/:id", async (req, res) => {
-//   const id =  req.params.id ;
-//   console.log(id);
-//     try{
-//       const Products = await Product.find({ProductCompanyName: id});
-//       res.json({Products});
-//     }catch(err){
-//       console.log(err, 'ProductsController.viewSpecificProducts error');
-//       res.status(500).json({
-//         errorMessage: 'Please try again later'
-//       })
-//     }
-// });
+router.post("/:prouductid", async (req, res) => {
+  
+  const product = await Product.findById(req.params.prouductid)
+  // const quantity = await Product.findOneAndUpdate(req.params.quantity)
+
+  
+  // console.log(quantity)
+  console.log(product)
+  if (product) {
+    product.count = product.count-2
+    console.log("ererere")
+    const updatedOrder = await product.save()
+
+    res.json(updatedOrder)  
+  } else {
+    res.status(404)
+    throw new Error('product not found')
+  }
+});
 
 
 
 
 
-
-
-
-//////////////////////////
 module.exports = router;

@@ -9,5 +9,5 @@ router
 router.route('/:id').get(orderController.getOrderById)
 router.route('/:id/pay').put(orderController.updateOrderToPaid)
 router.route('/:id/deliver').put(orderController.updateOrderToDelivered)
-
+// router.route('/:orderid/:productid').put(orderController.updateProduct)
 module.exports = router;

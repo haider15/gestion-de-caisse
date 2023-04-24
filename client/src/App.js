@@ -14,12 +14,17 @@ import Revenue from './Admin/Revenue/Revenue'
 import KingOfFilter from './components/Header/KingOfFilter'
 import Serveur from './Admin/serveur/Loginser'
 import Login from './components/Login/login'
-import Navbar from './components/navbar/navbar'
+
 import ajoutserveur from './Admin/serveur/ajoutserveur'
 import Loginser from './Admin/serveur/Loginser'
+import sidebar from './components/sidebar/sidebar'
+import SideNavBar from './components/sidebar/sidebar'
+import Ajoutserveur from './Admin/serveur/ajoutserveur'
+import Gestion from './components/gestion/gestion'
+import Edit from './components/gestion/Edit'
+import PrivateRoute from './components/privateRoute/PrivateRoute'
 
-// import NavBar from './components/navbar/navbar'
-// import Registration from './components/Login/Registration'
+
 function App() {
   const [idType, setIdType] = useState(0)
   function ChangeForIdType(id) {
@@ -32,22 +37,46 @@ function App() {
       <Router>
         {/* <NavBar /> */}
         <Switch>
+       
           <Route exact path='/'>
+            
             <GlobalState>
               <ShowCart />
               <KingOfFilter x={ChangeForIdType} typeId={idType} />
-            </GlobalState>          </Route>
+            </GlobalState>
+            
+          </Route>
+
+
           <Route path='/payment' component={Payment} />
-          <Route path='/admin' component={Admin} />
-          <Route path='/revenue' component={Revenue} />
           <Route path='/login' component={Login} />
+          <Route path="/loginser" component={Loginser} />
+          <Route path="/ges" component={Gestion} />
+          <Route path="/edit/:id" component={Edit} />
+          {/* <Route path='/revenue' component={Revenue} />
+          <Route path="/ajout" component={ajoutserveur} /> */}
           {/* <Route path="/ser" component={Serveur} /> */}
-          <Route path="/ajout" component={ajoutserveur} />
-          <Route path="/nav" component={Navbar}/> 
-          <Route path="/loginser" component={Loginser}/> 
+
+          {/* <Route path="/side" component={sidebar}/> */}
+
           {/* <Route path='/Reg' component={Registration} /> */}
+
+          <Route path="/nav">
+            <SideNavBar></SideNavBar>
+            <Switch>
+              <Route path="/nav/revenu" > <Revenue /></Route>
+              <Route path='/nav/admin'>
+                <Admin />
+              </Route>
+              <Route path='/nav/ajout'>
+                <Ajoutserveur />
+              </Route>
+            </Switch>
+
+          </Route>
         </Switch>
       </Router>
+
     </>
   )
 }

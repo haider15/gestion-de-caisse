@@ -6,6 +6,10 @@ import Modal from "react-modal";
 import { customStyles } from "./SingleProduct";
 import ButtonUpload from "../ButtonUpload";
 import { useHistory } from "react-router-dom"
+import CIcon from '@coreui/icons-react';
+import LogoutIcon from '@mui/icons-material/Logout';
+import AddIcon from '@mui/icons-material/Add';
+import './add.css'
 const AddModal = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   let subtitle;
@@ -71,10 +75,10 @@ const AddModal = () => {
         "Vous devez remplir les informations complètement ou correctement",
         "warning"
       );
-      
+
       return;
     }
- 
+
     const data = new FormData();
     data.append("img", newProduct.img);
     data.append("name", newProduct.name);
@@ -102,15 +106,15 @@ const AddModal = () => {
     // axios.post("http://localhost:3000/")
   };
   return (
-    <>
-      <button onClick={openModal} className="listProducts-heading-add-product">
-        <i className="fas fa-plus"></i>
-        ajout des plat
-      </button>
-      <button onClick={logout} className="listProducts-heading-add-product">
-        <i class="icon-signout"></i>
-        logout
-      </button>
+    <><div className="add" onClick={openModal}>
+      <AddIcon />ajout des plat </div>
+      <div className="add1">
+        <LogoutIcon onClick={logout}> </LogoutIcon></div>
+      <div className="col">
+
+
+
+      </div>
       <Modal
         // style={{ width: 600 }}
         // className="Modal"

@@ -16,12 +16,12 @@ const Loginser = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:5000/api/serveur//login";
+			const url = "http://localhost:5000/api/serveur/login";
 			console.log(data)
 			const {data: res } = await axios.post(url, data);
 			console.log(data);
 			localStorage.setItem("token", res.data);
-			navigate.push('/login');
+			navigate.push('/');
 		} catch (error) {
 			if (
 				error.response &&
@@ -41,7 +41,7 @@ const Loginser = () => {
 						<h1>Login to Your user Account</h1>
 						<input
 							type="email"
-							placeholder="Email"
+							placeholder="email"
 							name="email"
 							onChange={handleChange}
 							value={data.email}
@@ -64,10 +64,10 @@ const Loginser = () => {
 					</form>
 				</div>
 				<div className={styles.right}>
-					<h1>New Here ?</h1>
-					<Link to="/ajout">
+					<h1>login to admin :</h1>
+					<Link to="/login">
 						<button type="button" className={styles.white_btn}>
-							Sing Up
+							admin
 						</button>
 					</Link>
 				</div>

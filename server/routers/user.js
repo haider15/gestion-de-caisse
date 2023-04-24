@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const { User  } = require("../model/user");
-const UserSession = require("../model/UserSession");
 const bcrypt = require("bcrypt");
 
 
@@ -37,8 +36,9 @@ router.post("/login", async (req, res) => {
         return res.status(400).json("incorrect password");
     }
     const token = user.generateAuthToken();
+  
     
-    res.status(200).send({ data: token, message: "logged in successfully" });
+    res.status(200).send({ user, data: token , message: "logged in successfully" });
     console.log(token);
     console.log("log is succ");
   } catch (err) {

@@ -5,6 +5,8 @@ import swal from "sweetalert";
 import Modal from "react-modal";
 import { customStyles } from "./SingleProduct";
 import ButtonUpload from "../ButtonUpload";
+import AddIcon from '@mui/icons-material/Add';
+import './add.css'
 const AddType = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   let subtitle;
@@ -68,10 +70,10 @@ const AddType = () => {
   };
   return (
     <>
-      <button onClick={openModal} className="listProducts-heading-add-product">
-        <i className="fas fa-plus"></i>
-        catégories des produits
-      </button>
+     <div className="add" onClick={openModal}>
+      <AddIcon  >
+      </AddIcon>catégories des produits
+      </div>
       <Modal
         // style={{ width: 600 }}
         // className="Modal"

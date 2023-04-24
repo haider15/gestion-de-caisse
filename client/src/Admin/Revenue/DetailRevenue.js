@@ -5,9 +5,9 @@ import { FiXCircle } from 'react-icons/fi';
 import { FcOk } from "react-icons/fc";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import DetailOrder from './DetailOrder';
-
 import axios from "axios";
-
+import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 const contentStyle = {
     height: "80%",
     width: "85%",
@@ -26,7 +26,12 @@ export default function DetailRevenue(props) {
     const refreshPage = () => {
         window.location.reload(false);
     }
-    
+    const navigate = useHistory()
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
+      navigate.push('/login')
+    }
+  }, []);
     return (
 
             <Popup
