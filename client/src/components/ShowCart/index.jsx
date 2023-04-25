@@ -5,6 +5,8 @@ import ShopContext from "../ShopContext";
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import React, { useContext, useEffect } from "react";
+import LogoutIcon from '@mui/icons-material/Logout';
+
 const ShowCart = () => {
 
   const handleClickCart = () => {
@@ -31,12 +33,14 @@ const ShowCart = () => {
     navigate.push('/loginser');
   }
   return (
-    <>
-      <i className="fas fa-shopping-cart" onClick={logout} ></i>
+    <>  
+
+      
       <div className="cart-icon"
         onClick={handleClickCart}
       >
-
+        <div className="logout">
+ <LogoutIcon  onClick={logout} className="fas fa-shopping-cart1"></LogoutIcon></div>
         <i className="fas fa-shopping-cart"></i>
         <div className="INCART">
           {context.cart.reduce((count, curItem) => {

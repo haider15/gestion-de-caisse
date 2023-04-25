@@ -51,7 +51,7 @@ function App() {
           <Route path='/payment' component={Payment} />
           <Route path='/login' component={Login} />
           <Route path="/loginser" component={Loginser} />
-          <Route path="/ges" component={Gestion} />
+          {/* <Route path="/ges" component={Gestion} /> */}
           <Route path="/edit/:id" component={Edit} />
           {/* <Route path='/revenue' component={Revenue} />
           <Route path="/ajout" component={ajoutserveur} /> */}
@@ -71,6 +71,10 @@ function App() {
               <Route path='/nav/ajout'>
                 <Ajoutserveur />
               </Route>
+              <Route path='/nav/ges'>
+                <Gestion />
+              </Route>
+              
             </Switch>
 
           </Route>

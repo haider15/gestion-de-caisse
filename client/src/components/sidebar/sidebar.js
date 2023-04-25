@@ -1,7 +1,8 @@
 
 import { useHistory } from "react-router-dom";
-import React,{ useEffect } from "react";
+import React, { useEffect } from "react";
 // Be sure to include styles at some point, probably during your bootstraping
+import LogoutIcon from '@mui/icons-material/Logout';
 
 import SideNav, {
 
@@ -9,8 +10,8 @@ import SideNav, {
   NavIcon,
   NavText
 } from "@trendmicro/react-sidenav";
-import './sidebar.css';  
-import {  Link } from "react-router-dom";
+import './sidebar.css';
+import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 // const navigate =useHistory()
 // function logout() {
@@ -25,36 +26,36 @@ class SideNavBar extends React.Component {
       isVisible: true
     };
   }
-  
-  
- 
-  
+
+
+
+
   render() {
     // useEffect(()=>{
     //   if(!localStorage.getItem('token')){
     //     navigate.push('/login')
     //   }
     // },[]);
-   
+
     return (
-     
+
       <SideNav expanded={this.state.isVisible}>
-        
+
         <SideNav.Toggle
-          // onClick={() => {
-          //   this.setState({ isVisible: !this.state.isVisible });
-          // }}
-        />  
-       
+        // onClick={() => {
+        //   this.setState({ isVisible: !this.state.isVisible });
+        // }}
+        />
+
         <SideNav.Nav defaultSelected="admin">
-         <NavItem eventKey="admin">
+          <NavItem eventKey="admin">
             <NavIcon>
               <i className="  " style={{ fontSize: "1.75em" }} />
             </NavIcon>
-          
+
             <NavText ><Link to="/nav/admin" >admin</Link></NavText>
-            
-          </NavItem>    
+
+          </NavItem>
           <NavItem eventKey="placed orders">
             <NavIcon>
               <i
@@ -63,7 +64,7 @@ class SideNavBar extends React.Component {
               />
             </NavIcon>
             <NavText ><Link to="/nav/revenu" >revenue</Link></NavText>
-            
+
           </NavItem>
           <NavItem eventKey="placed orders1">
             <NavIcon>
@@ -72,24 +73,35 @@ class SideNavBar extends React.Component {
                 style={{ fontSize: "1.75em" }}
               />
             </NavIcon>
-            <NavText><Link to="/nav/ajout" > gestion serveur </Link> </NavText>
-           
+            <NavText> <Link to="/nav/ajout" > ajout serveur </Link> </NavText>
+
           </NavItem>
 
-
-          <NavItem eventKey="placed orders1">
+          <NavItem eventKey="placed orders2">
             <NavIcon>
               <i
                 className="fa fa-fw fa-line-chart"
                 style={{ fontSize: "1.75em" }}
               />
             </NavIcon>
-            <NavText   > <Button > logout </Button>  </NavText>
-           
+            <NavText> <Link to="/nav/ges" > gestion serveur </Link> </NavText>
+
+          </NavItem>
+
+
+          <NavItem eventKey="placed orders3">
+            <NavIcon>
+              <i
+                className="fa fa-fw fa-line-chart"
+                style={{ fontSize: "1.75em" }}
+              />
+            </NavIcon>
+            <NavText   >  <LogoutIcon className="fas fa-shopping-cart1"></LogoutIcon>  </NavText>
+
           </NavItem>
         </SideNav.Nav>
       </SideNav>
-     
+
     );
   }
 }

@@ -22,14 +22,15 @@ const Edit = () => {
 
     const setdata = (e) => {
         console.log(e.target.value);
-        const { firstName, value } = e.target;
+        const { name, value } = e.target;
+        // console.log(e.target)
         setINP((preval) => {
             return {
                 ...preval,
-                [firstName]: value
+                [name]: value
             }
         })
-    }
+    }   
 
 
     const { id } = useParams("");
@@ -87,7 +88,8 @@ const Edit = () => {
             alert("fill the data");
         }else{
             history.push("/ges")
-            setUPdata(data2);   
+            // setUPdata(data2);   
+        
         }
 
     }
@@ -99,19 +101,19 @@ const Edit = () => {
                 <div className="row">
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
                         <label for="exampleInputEmail1" class="form-label">Name</label>
-                        <input type="text" value={inpval.firstName} onChange={setdata} firstName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="cinHelp" />
+                        <input type="text" value={inpval.firstName} onChange={setdata} name="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="cinHelp" />
                     </div>
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
                         <label for="exampleInputPassword1" class="form-label">cin</label>
-                        <input type="cin" value={inpval.cin} onChange={setdata} firstName="cin" class="form-control" id="exampleInputPassword1" />
+                        <input type="cin" value={inpval.cin} onChange={setdata} name="cin" class="form-control" id="exampleInputPassword1" />
                     </div>
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
                         <label for="exampleInputPassword1" class="form-label">email</label>
-                        <input type="text" value={inpval.email} onChange={setdata} firstName="email" class="form-control" id="exampleInputPassword1" />
+                        <input type="text" value={inpval.email} onChange={setdata} name="email" class="form-control" id="exampleInputPassword1" />
                     </div>
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
                         <label for="exampleInputPassword1" class="form-label">Mobile</label>
-                        <input type="number" value={inpval.password} onChange={setdata} firstName="password" class="form-control" id="exampleInputPassword1" />
+                        <input type="number" value={inpval.password} onChange={setdata} name="password" class="form-control" id="exampleInputPassword1" />
                     </div>
                    
                 
