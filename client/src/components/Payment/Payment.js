@@ -119,9 +119,9 @@ const Payment = () => {
     event.preventDefault();
   
     const data = {
-      // userName: ordername,
-      // usingMethod: orderusingMethod,
-      // totalPrice: total,
+      userName: ordername,
+      usingMethod: orderusingMethod,
+      totalPrice: total,
       OrderItems: ListItems,
       // quantity: quantity
     };
@@ -140,7 +140,7 @@ const Payment = () => {
           //     OrderItems: ListItems, 
           // })
         .then((res) => {
-          // history.push("/");
+          history.push("/");
           console.log("resultat",res.data);
         })
         .catch((error) => console.log(error));

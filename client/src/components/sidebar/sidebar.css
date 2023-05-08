@@ -6,7 +6,7 @@
   left: 0;
   z-index: 1006;
   min-width: 64px;
-  background: #3bb19b;
+  background: #4f5151;
   -webkit-transition: min-width 0.2s;
   -moz-transition: min-width 0.2s;
   -o-transition: min-width 0.2s;
@@ -345,6 +345,10 @@
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
   box-sizing: inherit;
+}
+
+.profil{
+  align-items: center;
 }
 
 /*# sourceMappingURL=react-sidenav.css.map*/  

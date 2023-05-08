@@ -238,4 +238,19 @@
     cursor: pointer;
     height: 46.52px;
   }
+  .edit{
+    background-color: #00b2bf;
+  }
+  .delete{
+    background-color: red;
+  }
+  .iconManager {
+    vertical-align: middle;
+  }
+ 
+  .grid {
+    background-color: #cccccc;
+    border-top-right-radius: 20px;
+    border: groove;
+  }
   

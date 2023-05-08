@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 import React, { useEffect } from "react";
 // Be sure to include styles at some point, probably during your bootstraping
 import LogoutIcon from '@mui/icons-material/Logout';
+import PersonPinIcon from '@mui/icons-material/PersonPin';
+
 
 import SideNav, {
 
@@ -39,15 +41,25 @@ class SideNavBar extends React.Component {
 
     return (
 
+
       <SideNav expanded={this.state.isVisible}>
 
         <SideNav.Toggle
-        // onClick={() => {
-        //   this.setState({ isVisible: !this.state.isVisible });
-        // }}
+        onClick={() => {
+          this.setState({ isVisible: !this.state.isVisible });
+        }}
         />
 
         <SideNav.Nav defaultSelected="admin">
+
+        <NavItem eventKey="placed orders1" className="profil">
+            
+            {/* <PersonPinIcon></PersonPinIcon>
+             admin */}
+            
+            
+
+          </NavItem>
           <NavItem eventKey="admin">
             <NavIcon>
               <i className="  " style={{ fontSize: "1.75em" }} />
@@ -96,7 +108,7 @@ class SideNavBar extends React.Component {
                 style={{ fontSize: "1.75em" }}
               />
             </NavIcon>
-            <NavText   >  <LogoutIcon className="fas fa-shopping-cart1"></LogoutIcon>  </NavText>
+            <NavText   >   <LogoutIcon className="fas fa-shopping-cart1"></LogoutIcon> logout </NavText>
 
           </NavItem>
         </SideNav.Nav>

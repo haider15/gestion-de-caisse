@@ -74,15 +74,17 @@
 }
 .tabaccount {
   margin-top: 1px;
-  margin-left: 15.5%;
-
 }
 
 /* **************************************ShowList********************************************************************** */
 .showlist {
   font-size: 10px;
   /* background-color: rgba(110, 184, 0.9); */
-  background: #3bb19b;
+  background: linear-gradient(
+    90deg,
+    hsla(29, 92%, 70%, 1) 0%,
+    hsla(0, 87%, 73%, 1) 100%
+  );
   margin-top: 1px;
   margin-bottom: 1px;
   border-right: groove;
@@ -93,8 +95,6 @@
 }
 .panel-content {
   text-align: left;
-  background-color: #3bb19b ;
-  margin-left: 15.5%;
 }
 
 /* **************************************ShowList********************************************************************** */
@@ -108,7 +108,11 @@
   /* color: red; */
   font-weight: 100;
   font-size: 25px;
-  background:#3bb19b;
+  background: linear-gradient(
+    90deg,
+    hsla(29, 92%, 70%, 1) 0%,
+    hsla(0, 87%, 73%, 1) 100%
+  );
   border-radius: 10px;
   letter-spacing: 0.15em;
   padding: 2px 30px;

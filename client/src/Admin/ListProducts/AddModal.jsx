@@ -9,7 +9,13 @@ import { useHistory } from "react-router-dom"
 import CIcon from '@coreui/icons-react';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AddIcon from '@mui/icons-material/Add';
+import PersonPinIcon from '@mui/icons-material/PersonPin';
 import './add.css'
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications';
 const AddModal = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   let subtitle;
@@ -35,6 +41,20 @@ const AddModal = () => {
     localStorage.clear();
     navigate.push('/login');
   }
+
+
+
+  ///////////////////
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  //////////////////
   const { typeProducts, addProduct } = useContext(adminContext);
   // const fileInput = React.createRef();
   const [newProduct, setNewProduct] = useState({
@@ -108,12 +128,56 @@ const AddModal = () => {
   return (
     <><div className="add" onClick={openModal}>
       <AddIcon />ajout des plat </div>
+
+      <div className="add2">
+
+        <PersonPinIcon></PersonPinIcon>
+        {/* <text>dem!</text> */}
+      </div>
       <div className="add1">
-        <LogoutIcon onClick={logout}> </LogoutIcon></div>
-      <div className="col">
+        <CircleNotificationsIcon></CircleNotificationsIcon>
+
+      </div>
+
+      <div  className="point">
+        <IconButton 
+
+          aria-label="more"
+          id="long-button"
+          aria-controls={open ? 'long-menu' : undefined}
+          aria-expanded={open ? 'true' : undefined}
+          aria-haspopup="true"
+          onClick={handleClick}
+        >
+          <MoreVertIcon />
+        </IconButton>
+        <Menu
+          id="long-menu"
+          MenuListProps={{
+            'aria-labelledby': 'long-button',
+          }}
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          PaperProps={{
+
+          }}
+        >
+
+          <MenuItem onClick={handleClose}>
+
+            <PersonPinIcon></PersonPinIcon>
 
 
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
 
+
+            <LogoutIcon onClick={logout}> </LogoutIcon>
+
+          </MenuItem>
+
+        </Menu>
       </div>
       <Modal
         // style={{ width: 600 }}

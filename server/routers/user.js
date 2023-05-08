@@ -68,46 +68,16 @@ router.post("/deleteuser", async (req, res) => {
   }
 });
 
+router.get("/",async (req, res) => {
+  try {
+    const users = await User.findOne({email:req.body.email});
+    res.status(200).send(users);
+  } catch (error) {
+    res.status(404).json({ message: error.stack });
+  }
 
-//logout
-// router.get("/logout", (req, res, next) => {
-//   const { query } = req;
-//   const { token } = query;
-
-//   UserSession.findOneAndUpdate(
-//     {
-//       _id: token,
-//       isDeleted: false,
-//     },
-//     {
-//       $set: {
-//         isDeleted: true,
-//       },
-//     },
-//     null,
-//     (err, sessions) => {
-//       if (err) {
-//         console.log(err);
-//         return res.send({
-//           success: false,
-//           message: "Error: Server error",
-//         });
-//       }
-
-//       return res.send({
-//         success: true,
-//         message: "good",
-
-//       });
-//     }
-//   );
-// });
-
-
-router.post('/logout', (req, res) => {
-  console.log('hello my logout page');
-  res.clearCookie('jwtoken', { path: '/login' });
-  res.status(200).send('User logout');
 })
+
+
 
 module.exports = router;

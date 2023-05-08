@@ -22,7 +22,6 @@ import SideNavBar from './components/sidebar/sidebar'
 import Ajoutserveur from './Admin/serveur/ajoutserveur'
 import Gestion from './components/gestion/gestion'
 import Edit from './components/gestion/Edit'
-import PrivateRoute from './components/privateRoute/PrivateRoute'
 
 
 function App() {
@@ -52,7 +51,7 @@ function App() {
           <Route path='/login' component={Login} />
           <Route path="/loginser" component={Loginser} />
           {/* <Route path="/ges" component={Gestion} /> */}
-          <Route path="/edit/:id" component={Edit} />
+          <Route path="/nav/edit/:id" component={Edit} />
           {/* <Route path='/revenue' component={Revenue} />
           <Route path="/ajout" component={ajoutserveur} /> */}
           {/* <Route path="/ser" component={Serveur} /> */}

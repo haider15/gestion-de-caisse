@@ -79,20 +79,20 @@ const ListProducts = () => {
   }, []);
   return (
     <>
-      
+        <div className="grid"> <div className='iconManager'><h2>   La gestion des serveurs </h2></div></div>
 
       {/* {filter} */}
       <div className="listProducts-heading">
-        {/* <h3 className="listProducts-heading-title">Danh sách sản phẩm</h3> */}
+        {/* <h3 className="listProducts-heading-title">Liste des produits:</h3> */}
 
         {false || (
-          <div className="">
+          <div className="menu">
             <button
               onClick={() => setSelectFilter(-1)}
               className="button-filter-food"
               style={
                 selectFilter === -1
-                  ? { backgroundColor: "red", color: "#333" }
+                  ? { backgroundColor: " #ffffff", color: "#333" }
                   : {}
               }
             >
@@ -106,7 +106,7 @@ const ListProducts = () => {
                     onClick={() => setSelectFilter(index)}
                     style={
                       selectFilter === index
-                        ? { backgroundColor: "red", color: "#333" }
+                        ? { backgroundColor: "#ffffff", color: "#333" }
                         : {}
                     }
                     className="button-filter-food"

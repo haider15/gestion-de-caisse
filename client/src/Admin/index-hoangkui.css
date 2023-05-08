@@ -7,11 +7,9 @@
   box-sizing: border-box;
   align-items: center;
   font-size: 16px;
-  margin-left: 15.5%;
-  
 }
 .listProducts-heading-title {
-  color: #50b1b1;
+  color: #505eb1;
   font-size: 22px;
 }
 .listProducts-heading-wrap-search {
@@ -111,15 +109,13 @@ tr:nth-child(even) {
   margin: 0;
   border-collapse: collapse;
   text-align: center;
-  margin-left: 15.5%;
-  /* margin-left: 15%; */
 }
 .listProducts-content-row {
   cursor: pointer;
   height: 40px;
 }
 .listProducts-content-row-heading-table {
-  background-color: #3bb19b;
+  background-color: #6c7ae0;
   border-spacing: 0;
   color: #fff;
   /* font-size: 16px; */

@@ -22,7 +22,7 @@ const Ajoutserveur = () => {
 			const {data: res } = await axios.post(url, data);
 			console.log(data);
 			localStorage.setItem("token", res.data);
-			navigate.push('/loginser');
+			navigate.push('/nav/ges');
 		} catch (error) {
 			if (
 				error.response &&
@@ -37,7 +37,7 @@ const Ajoutserveur = () => {
 	
 	useEffect(() => {
 	  if (!localStorage.getItem('token')) {
-		navigate.push('/login')
+		navigate.push('/loginser')
 	  }
 	}, []);
 	return (

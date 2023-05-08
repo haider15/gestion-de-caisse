@@ -64,7 +64,7 @@ export default function DetailRevenue(props) {
                                             className="buttonConfirm" 
                                             onClick={() => ConfirmOrder(props.order)}
                                             >
-                                           Confirmer
+                                           annuler
                                         </button>}
                                     </i>
                                 </i>

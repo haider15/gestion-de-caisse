@@ -87,7 +87,7 @@ const Edit = () => {
         if(res2.status === 422 || !data2){
             alert("fill the data");
         }else{
-            history.push("/ges")
+            history.push("/nav/ges")
             // setUPdata(data2);   
         
         }
