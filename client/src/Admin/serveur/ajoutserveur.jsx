@@ -41,11 +41,14 @@ const Ajoutserveur = () => {
 	  }
 	}, []);
 	return (
+		
+
+		
 		<div className={styles.login_container}>
 			<div className={styles.login_form_container}>
 				<div className={styles.left}>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Login to Your User Account </h1>
+						<h1>Creer un nouveau serveur </h1>
 						<input
 							type="text"
 							placeholder="firstName"
@@ -91,11 +94,11 @@ const Ajoutserveur = () => {
 				</div>
 				<div className={styles.right}>
 					<h1>New Here ?</h1>
-					<Link to="/signup">
+					{/* <Link to="/signup">
 						<button type="button" className={styles.white_btn}>
 							Sing Up
 						</button>
-					</Link>
+					</Link> */}
 				</div>
 			</div>
 		</div>

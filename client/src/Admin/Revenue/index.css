@@ -242,3 +242,26 @@
   cursor: pointer;
   height: 46.52px;
 }
+
+.Total1 {
+  position: absolute;
+  bottom: 0;
+  right: 0  ;
+  margin-right: 1180px;
+  margin-bottom: 5px;
+  text-align: center;
+  /* color: red; */
+  font-weight: 100;
+  font-size: 25px;
+  background: linear-gradient(
+    90deg,
+    rgb(108, 209, 249) 0%,
+    rgb(126, 136, 246) 100%
+  );
+  cursor: pointer;
+};
+.grid {
+  background-color: #cccccc;
+  border-top-right-radius: 20px;
+  border: groove;
+}

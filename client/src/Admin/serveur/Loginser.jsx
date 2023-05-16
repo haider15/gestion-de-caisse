@@ -3,8 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import { useHistory } from "react-router-dom"
-
-const Loginser = () => {
+import Payment from "../../components/Payment/Payment";
+const Loginser = (props) => {
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
 	const  navigate = useHistory()
@@ -13,6 +13,22 @@ const Loginser = () => {
 	};
 
 	
+	// const email=props;
+	 const  email1=data.email
+	 
+	//  const blog=props.email1
+	
+	// // console.log("blog",blog)
+	// const keys = Object.keys(email1)
+	// console.log(keys)
+	// ///////////////////
+	// {keys.map(key => (
+	// 	<div key={key}>
+	// 		console.log({key})
+	// 		<li>{email1[key]}</li>
+	// 		</div>
+                        // ))}
+	///////////////////
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
@@ -20,8 +36,12 @@ const Loginser = () => {
 			console.log(data)
 			const {data: res } = await axios.post(url, data);
 			console.log(data);
-			localStorage.setItem("token", res.data);
+			const firstName=res.user.firstName
+			console.log(firstName)
+			localStorage.setItem("firstName",JSON.stringify(firstName) );
+			localStorage.setItem("token",JSON.stringify(res.data) );
 			navigate.push('/');
+		
 		} catch (error) {
 			if (
 				error.response &&
@@ -32,6 +52,7 @@ const Loginser = () => {
 			}
 		}
 	};
+	// <Payment email1={props.email1} />
 
 	return (
 		<div className={styles.login_container}>

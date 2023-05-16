@@ -6,7 +6,7 @@ import Cartreview from "./CartReview/Cartreview";
 import axios from "axios";
 import "./index.css";
 import {useParams} from 'react-router-dom';
-const Payment = () => {
+const Payment = (props) => {
   const [ModalOpened, setModalOpened] = useState(true);
   const [usingMethod, setusingMethod] = useState(null);
 
@@ -24,6 +24,7 @@ const Payment = () => {
   const history = useHistory();
   const location = useLocation();
   const { cartcontext } = location.state;
+  const firstName = JSON.parse(localStorage.getItem("firstName"));
 
   let total = 0;
   let quantity=0;
@@ -87,7 +88,7 @@ const Payment = () => {
   };
 
   const updateState = () => {
-    if (usingMethod === "Directly") {
+    if (usingMethod === "a table") {
       if (name === "" || table === "" || table === "Select the table") {
         if (name === "") setnameerror(true);
         if (table === "") settableerror(true);
@@ -95,7 +96,7 @@ const Payment = () => {
       } else {
         setState(state + 1);
       }
-    } else if (usingMethod === "Online") {
+    } else if (usingMethod === "emporter") {
       if (name === "" || address === "" || number === "") {
         if (name === "") setnameerror(true);
         if (address === "") setaddresserror(true);
@@ -175,12 +176,13 @@ const Payment = () => {
 //       console.log(error);
 //     }
 //   };
+
   //////////////////
   return (
     <div>
       {ModalOpened ? (
         <MethodModal isOpened={ModalOpened} onChooseMethod={setMethod} />
-      ) : usingMethod === "Directly" && state === 1 ? (
+      ) : usingMethod === "a table" && state === 1 ? (
         <Form className="form-holder">
           <div className="form-content">
             <div className="form-items">
@@ -191,8 +193,8 @@ const Payment = () => {
                 <Form.Control
                   onChange={handlenameChange}
                   type="text"
-                  placeholder="table A"
-                  value={name}
+                  // placeholder={firstName}
+                  value={firstName}
                 />
                 {nameerror ? (
                   <div className="invalid-feedback">
@@ -232,7 +234,7 @@ const Payment = () => {
             </div>
           </div>
         </Form>
-      ) : usingMethod === "Online" && state === 1 ? (
+      ) : usingMethod === "emporter" && state === 1 ? (
         <Form className="form-holder">
           <div className="form-content">
             <div className="form-items">
@@ -247,7 +249,7 @@ const Payment = () => {
                   onChange={handlenameChange}
                   type="text"
                   placeholder="table A"
-                  value={name}
+                  value={firstName}
                 />
                 {nameerror ? (
                   <div className="invalid-feedback">
@@ -334,7 +336,7 @@ const Payment = () => {
             <div className="form-items">
               <h3>Vérifiez votre commande</h3>
               <p>Vérifiez toutes les informations que vous avez remplies .</p>
-              {usingMethod === "Directly" ? (
+              {usingMethod === "a table" ? (
                 <div>
                   <div className="payment-review">
                     <strong>Nom du client:</strong>
@@ -359,7 +361,7 @@ const Payment = () => {
                     </ul>
                   </div>
                 </div>
-              ) : usingMethod === "Online" ? (
+              ) : usingMethod === "emporter" ? (
                 <div>
                   <div className="payment-review">
                     <strong>Nom du client:</strong>

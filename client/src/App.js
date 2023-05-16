@@ -22,6 +22,9 @@ import SideNavBar from './components/sidebar/sidebar'
 import Ajoutserveur from './Admin/serveur/ajoutserveur'
 import Gestion from './components/gestion/gestion'
 import Edit from './components/gestion/Edit'
+import gestionC from './Admin/gestionC/gestionC'
+import GestionC from './Admin/gestionC/gestionC'
+import { Zoom } from '@mui/material'
 
 
 function App() {
@@ -45,7 +48,6 @@ function App() {
             </GlobalState>
             
           </Route>
-
 
           <Route path='/payment' component={Payment} />
           <Route path='/login' component={Login} />
@@ -73,7 +75,9 @@ function App() {
               <Route path='/nav/ges'>
                 <Gestion />
               </Route>
-              
+              <Route path='/nav/gesC'>
+               <GestionC />
+              </Route>
             </Switch>
 
           </Route>

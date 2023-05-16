@@ -72,7 +72,7 @@ const AddType = () => {
     <>
      <div className="add" onClick={openModal}>
       <AddIcon  >
-      </AddIcon>catégories des produits
+      </AddIcon>Ajout de Famille
       </div>
       <Modal
         // style={{ width: 600 }}

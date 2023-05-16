@@ -79,7 +79,7 @@ const ListProducts = () => {
   }, []);
   return (
     <>
-        <div className="grid"> <div className='iconManager'><h2>   La gestion des serveurs </h2></div></div>
+        <div className="grid"> <div className='iconManager'><h2>   La gestion des Produits </h2></div></div>
 
       {/* {filter} */}
       <div className="listProducts-heading">
@@ -137,13 +137,13 @@ const ListProducts = () => {
           
             <tr className="listProducts-content-row-heading-table">
               <th className="listProducts-content-row-heading">SKU</th>
-              <th className="listProducts-content-row-heading">Nom du produit</th>
+              <th className="listProducts-content-row-heading">Produit</th>
               <th className="listProducts-content-row-heading">
-              type de produit
+              Famille Produit
               </th>
-              <th className="listProducts-content-row-heading">Quantité restante</th>
-              <th className="listProducts-content-row-heading">Décrire</th>
-              <th className="listProducts-content-row-heading">Prix</th>
+              <th className="listProducts-content-row-heading">Quantité</th>
+              <th className="listProducts-content-row-heading">Description</th>
+              <th className="listProducts-content-row-heading">Prix</th>  
               <th className="listProducts-content-row-heading"></th>
               <th className="listProducts-content-row-heading">
                 

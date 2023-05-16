@@ -63,6 +63,7 @@ class SideNavBar extends React.Component {
           <NavItem eventKey="admin">
             <NavIcon>
               <i className="  " style={{ fontSize: "1.75em" }} />
+              
             </NavIcon>
 
             <NavText ><Link to="/nav/admin" >admin</Link></NavText>
@@ -99,9 +100,19 @@ class SideNavBar extends React.Component {
             <NavText> <Link to="/nav/ges" > gestion serveur </Link> </NavText>
 
           </NavItem>
-
-
           <NavItem eventKey="placed orders3">
+            <NavIcon>
+              <i
+                className="fa fa-fw fa-line-chart"
+                style={{ fontSize: "1.75em" }}
+              />
+            </NavIcon>
+            <NavText> <Link to="/nav/gesc" > recette </Link> </NavText>
+
+          </NavItem>
+
+
+          {/* <NavItem eventKey="placed orders3">
             <NavIcon>
               <i
                 className="fa fa-fw fa-line-chart"
@@ -110,7 +121,7 @@ class SideNavBar extends React.Component {
             </NavIcon>
             <NavText   >   <LogoutIcon className="fas fa-shopping-cart1"></LogoutIcon> logout </NavText>
 
-          </NavItem>
+          </NavItem> */}
         </SideNav.Nav>
       </SideNav>
 

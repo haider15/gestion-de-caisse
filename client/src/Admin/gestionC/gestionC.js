@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import './index.css';
+import './index.css'
 import { Container, Row, Col } from 'react-grid-system';
 // import Popup from "reactjs-popup";
 
-import DetailRevenue from "./DetailRevenue";
+import DetailRevenue from "../Revenue/DetailOrder";
 import axios from "axios";
 import { FaSearch } from "react-icons/fa";
 import { BiRestaurant } from "react-icons/bi";
-import useMountTransition from "./useMountTransition";
-import { deldata } from './ContextProvider';
+import useMountTransition from "../Revenue/useMountTransition";
+import { object } from 'joi';
 
-export default function Revenue() {
+
+export default function GestionC() {
     // const [Staffs, setStaff] = React.useState(null);
     const renderSwitch = (search, current) => {
         switch (search) {
@@ -72,36 +73,37 @@ export default function Revenue() {
     let result = [...Orders];
     // if(result[1]) console.log("arayy",result[1].id);
     ////////////////////////////
-    const deleteuser = async (id) => {
+    // Assuming you have fetched the data from the database and stored it in the 'data' variable
 
-        const res2 = await fetch(`http://localhost:5000/api/orders`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-
-        const deletedata = await res2.json();
-        console.log(deletedata);
-
-        if (res2.status === 422 || !deletedata) {
-            console.log("error");
-        } else {
-            console.log("user deleted");
-            window.location.reload(false);
-
-        }
-
-    }
-
+    // Initialize an empty object to hold the name and price sums
+    const namePriceSums = {};
     const data = Orders
-    let persons = [];
-    for (let i = 0; i<data.length; i++){
-      persons.push(<p>{data[i].userName}</p>)
+
+
+    // Iterate over the data and calculate the price sums
+    data.forEach(item => {
+        const { userName, totalPrice } = item;
+        if (namePriceSums.hasOwnProperty(userName)) {
+            namePriceSums[userName] += totalPrice;
+        } else {
+            namePriceSums[userName] = totalPrice;
+        }
+    });
+
+    // Output the name and corresponding price sums
+    for (const userName in namePriceSums) {
+        if (namePriceSums.hasOwnProperty(userName)) {
+            //    console.log(namePriceSums)
+        }
     }
 
 
-    /////////////////////////
+
+    const keys = Object.keys(namePriceSums)
+
+
+
+
     return (
         <>
             <div className="panel-content">
@@ -109,7 +111,7 @@ export default function Revenue() {
                     <Row>
                         <Col lg={9}>
                             {" "}
-                             <BiRestaurant className="grid" /> <h2>  La gestion des commandes </h2>
+                            <h2><BiRestaurant className="iconManager" />   La gestion des Recette </h2>
                         </Col>
                         <Col lg={3}>
                             {" "}
@@ -147,34 +149,44 @@ export default function Revenue() {
                 <div>
                     <Container className="showlist" fluid>
                         <Row>
-                            <Col sm={1.9}> <h2 className="columlist">Commandeur</h2></Col>
-                            <Col sm={4.2}> <h2 className="columlist">Annulation</h2></Col>
-                            <Col sm={4.4}> <h2 className="columlist">Former</h2></Col>
-                            <Col sm={1.3}> <h2 className="columlist">Prix ​​unitaire</h2></Col>
+                            <Col > <h2 className="columlist">Commandeur</h2></Col>
+
+                            <Col > <h2 className="columlist">caisse</h2></Col>
                         </Row>
                     </Container>
-                    <div className="contentlist_Revenue">
-                        {renderSwitch(checked, current)}
-                    </div>
-                    <div className="Total">revenu total: {
+                    <Container className="contentlist_Revenue" fluid>
+                    {keys.map(key => (
+                                <div key={key}>
+                        <Row>
+                        
+                                    
+                              
+                            <Col > <h2 className=""> {key} </h2></Col>
+
+                            <Col > <h2 className=""> {namePriceSums[key]}</h2></Col>
+                           
+                            
+                        </Row>
+                        </div>
+                        ))}
+
+                    </Container>
+                    <div className="">
+                        <div>
+                          
+                        </div>
+                    
+                </div>
+                <div className="Total">revenu total: {
                         Orders.reduce((sum, i) => (
                             sum = (sum + i.totalPrice) - (i.isPaid ? i.totalPrice : 0)
                         ), 0).toLocaleString()
                     }.0 D</div>
-                    {/* {/*                     
-                 
-                    
-                    {/* <div className="Total">revenu2 total: {
-                        Orders.reduce((sum, i) => (
-                            
-                            sum +=  i.userName=="haider" ?  i.totalPrice : 0  
-                        ), 0).toLocaleString()
-                    }.0 D</div> */}
-                   
-                    
-                    <div className="Total1" onClick={deleteuser}> supprimer</div>
-                </div>
+
+               
+
             </div>
+        </div >
         </>
     )
 }

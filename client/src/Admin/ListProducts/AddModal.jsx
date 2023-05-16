@@ -129,15 +129,11 @@ const AddModal = () => {
     <><div className="add" onClick={openModal}>
       <AddIcon />ajout des plat </div>
 
-      <div className="add2">
+       
 
-        <PersonPinIcon></PersonPinIcon>
-        {/* <text>dem!</text> */}
-      </div>
-      <div className="add1">
-        <CircleNotificationsIcon></CircleNotificationsIcon>
-
-      </div>
+      
+        
+     
 
       <div  className="point">
         <IconButton 
