@@ -25,6 +25,7 @@ import Edit from './components/gestion/Edit'
 import gestionC from './Admin/gestionC/gestionC'
 import GestionC from './Admin/gestionC/gestionC'
 import { Zoom } from '@mui/material'
+import Liste from './components/liste/Liste'
 
 
 function App() {
@@ -54,13 +55,7 @@ function App() {
           <Route path="/loginser" component={Loginser} />
           {/* <Route path="/ges" component={Gestion} /> */}
           <Route path="/nav/edit/:id" component={Edit} />
-          {/* <Route path='/revenue' component={Revenue} />
-          <Route path="/ajout" component={ajoutserveur} /> */}
-          {/* <Route path="/ser" component={Serveur} /> */}
-
-          {/* <Route path="/side" component={sidebar}/> */}
-
-          {/* <Route path='/Reg' component={Registration} /> */}
+          <Route path="/type" component={Liste} />
 
           <Route path="/nav">
             <SideNavBar></SideNavBar>

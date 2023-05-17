@@ -11,7 +11,7 @@ import useMountTransition from "../Revenue/useMountTransition";
 import { object } from 'joi';
 
 
-export default function GestionC() {
+export default function Typeproduit() {
     // const [Staffs, setStaff] = React.useState(null);
     const renderSwitch = (search, current) => {
         switch (search) {

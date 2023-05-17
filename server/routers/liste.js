@@ -33,7 +33,7 @@ const upload = multer({
 router.get("/", async (req, res) => {
   try {
     const typeProducts = await TypeProduct.find({});
-    res.send({ success: true, typeProducts });
+    res.status(200).send(typeProducts);
   } catch (error) {
     console.log(error);
     res.status(500).json({ success: false, message: "Internal server error" });

@@ -6,6 +6,7 @@ const productRouter = require('./routers/product');
 const typeProductRouter = require('./routers/typeProduct');
 const orderRoutes = require('./routers/orderRoutes');
 const revenueRoutes = require('./routers/revenueRouter');
+const liste =require('./routers/liste')
 require("dotenv").config();
 // const fileUpload = require("express-fileupload");
 const app = express();
@@ -30,6 +31,8 @@ app.use('/api/product/', productRouter);
 app.use('/api/typeproduct/', typeProductRouter);
 app.use('/api/orders', orderRoutes);
 app.use('/revenue', revenueRoutes);
+app.use('/api/liste', liste);
+
 // app.get("/", (req, res) => res.send("Hello all!"));
 
 if (process.env.NODE_ENV === 'production') {
