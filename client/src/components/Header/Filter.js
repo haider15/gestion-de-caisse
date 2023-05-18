@@ -20,6 +20,7 @@ const Filter = ({ x, Foods, Typess }) => {
   const previous = () => {
     ref.current.slickPrev();
   };
+  const firstName = JSON.parse(localStorage.getItem("firstName"));
 
   const settings = {
     className: "section-outstanding__slider hoangkui-css-filter",
@@ -65,8 +66,8 @@ const Filter = ({ x, Foods, Typess }) => {
   return (
     <>
       <div className="backtohome">
-        <i className="fas fa-home backtohome-icon"></i>
-        <h3 className="backtohome-title">Back to Home</h3>
+        <i className="fas fa-user backtohome-icon"></i>
+        <h3 className="backtohome-title">Welcom :  {firstName}</h3>
       </div>
 
       {/* <div className="filter-food"> */}

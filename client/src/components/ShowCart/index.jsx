@@ -33,14 +33,14 @@ const ShowCart = () => {
     navigate.push('/loginser');
   }
   return (
-    <>  
+    <>
 
-      
+
       <div className="cart-icon"
         onClick={handleClickCart}
       >
         <div className="logout">
- <LogoutIcon  onClick={logout} className="fas fa-shopping-cart1"></LogoutIcon></div>
+          <LogoutIcon onClick={logout} className="fas fa-shopping-cart1"></LogoutIcon></div>
         <i className="fas fa-shopping-cart"></i>
         <div className="INCART">
           {context.cart.reduce((count, curItem) => {
@@ -52,7 +52,6 @@ const ShowCart = () => {
         <div className="cart-close"
           onClick={handleClickClose}
         >
-
           <i className="fas fa-times-circle"></i>
         </div>
         <div className="cart-header">

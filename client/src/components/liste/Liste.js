@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect, useContext } from 'react'
-// import CreateIcon from '@mui/icons-material/Create';
+import CreateIcon from '@mui/icons-material/Create';
 // import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { NavLink } from 'react-router-dom';
 import { deldata } from '../gestion/ContextProvider';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import ButtonUpload from '../../Admin/ButtonUpload';
 import './liste.css';
 function Liste() {
     const [getuserdata, setUserdata] = useState([]);
@@ -65,60 +65,65 @@ function Liste() {
 
     }
 
-  return (
-    <>
+    return (
+        <>
 
 
 
-    {/* <div className="mt-5">
+            {/* <div className="mt-5">
         <div className="container">
             <div className="add_btn mt-2 mb-2">
                 <NavLink to="/register" className="btn btn-primary">Add data</NavLink>
             </div> */}
             {/* <div className="panel-content"> */}
             <div className='grid'>
-            <div className='iconManager'><h2>   La gestion Les types de Produit  </h2></div> </div>
-     <div className="listProducts-content">
-        <table className="listProducts-content-table">
-            <thead className="tbody-nth">
-                <tr className="listProducts-content-row-heading-table">
-                    <th scope="col" className="listProducts-content-row-heading">id</th>
-                    <th scope="col"className="listProducts-content-row-heading">type de produit</th>
-                    <th scope="col"className="listProducts-content-row-heading">img</th>
+                <div className='iconManager'><h2>   La gestion Les types de Produit  </h2></div> </div>
+            <div className="listProducts-content">
+                <table className="listProducts-content-table">
+                    <thead className="tbody-nth">
+                        <tr className="listProducts-content-row-heading-table">
+                            <th scope="col" className="listProducts-content-row-heading">id</th>
+                            <th scope="col" className="listProducts-content-row-heading">type de produit</th>
+                            <th scope="col" className="listProducts-content-row-heading">img</th>
 
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-            {
+                        {
                             Object.entries(getuserdata).map((element, id) => {
-
+                                // if(id!=0){
                                 return (
                                     <>
 
                                         <tr>
                                             <th scope="row">{id + 1}</th>
                                             <td>{element[1].name}</td>
-                                            <td className='img'>{element[1].img}</td>
-                                           
+                                            <td className='img'> <ButtonUpload
+
+                                                src={element[1].img}
+
+                                            /></td>
+
                                             <td className="d-flex justify-content-between">
                                                 {/* <NavLink to={`view/${element[1]._id}`}> <button className="btn btn-success"><RemoveRedEyeIcon /></button></NavLink> */}
-                                                {/* <NavLink to={`/edliste${element[1]._id}`}>  <button className="edit"><CreateIcon color='red'/></button></NavLink> */}
-                                                <button className="btn btn-danger" onClick={() => deleteuser(element[1]._id)}> <DeleteIcon className='delete'/></button>
+                                                <NavLink to={`edite/${element[1]._id}`}>  <button className="edit"><CreateIcon color='red' /></button></NavLink>
+                                                <button className="btn btn-danger" onClick={() => deleteuser(element[1]._id)}> <DeleteIcon className='delete' /></button>
                                             </td>
                                         </tr>
                                     </>
                                 )
+                                //  }
                             })
                         }
-            </tbody>
-        </table>
+                    </tbody>
+                </table>
 
-    </div>
-    {/* </div>
+            </div>
+            {/* </div>
     </div> */}
-</>
-)
+        </>
+    )
 }
 export default Liste

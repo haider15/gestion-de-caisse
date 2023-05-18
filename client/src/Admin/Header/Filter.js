@@ -64,10 +64,10 @@ const Filter = ({ x }) => {
   }, [selected]);
   return (
     <>
-      <div className="backtohome">
+      {/* <div className="backtohome">
         <i className="fas fa-home backtohome-icon"></i>
         <h3 className="backtohome-title">Back to Home</h3>
-      </div>
+      </div> */}
 
       {/* <div className="filter-food"> */}
       <div className="button-filter button-back">
