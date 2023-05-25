@@ -14,16 +14,16 @@ const MethodModal = (props) => {
   return (
     <Modal show={props.isOpened}>
       <Modal.Header style={{ margin: '0 auto' }}>
-        <Modal.Title>type de :</Modal.Title>
+        <Modal.Title>Type de Commande  :</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Card className='my-3 method' onClick={chooseDirectMethod}>
           <Card.Title className='my-3 modal-card-title'>
-          a table
+          A table
           </Card.Title>
         </Card>
         <Card className='my-3 method' onClick={chooseAwayMethod}>
-          <Card.Title className='my-3 modal-card-title'> emporter</Card.Title>
+          <Card.Title className='my-3 modal-card-title'>A emporter</Card.Title>
         </Card>
       </Modal.Body>
     </Modal>

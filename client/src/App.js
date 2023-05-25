@@ -27,6 +27,7 @@ import GestionC from './Admin/gestionC/gestionC'
 import { Zoom } from '@mui/material'
 import Liste from './components/liste/Liste'
 import Edittype from './components/liste/edittype'
+import Jour from './Admin/jour/jour'
 
 
 function App() {
@@ -58,7 +59,9 @@ function App() {
           <Route path="/nav/edit/:id" component={Edit} />
           <Route path="/type" component={Liste} />
           <Route path="/nav/edite/:id" component={Edittype} />
+          <Route path="/jour" component={Jour} />
           <Route path="/nav">
+          
             <SideNavBar></SideNavBar>
             <Switch>
               <Route path="/nav/revenu" > <Revenue /></Route>
@@ -76,6 +79,9 @@ function App() {
               </Route>
               <Route path='/nav/type'>
                <Liste />
+              </Route>
+              <Route path='/nav/jour'>
+               <Jour/>
               </Route>
             </Switch>
 

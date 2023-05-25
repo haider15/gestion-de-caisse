@@ -4,8 +4,10 @@ const ButtonUpload = ({
   isDisable,
   text,
   src,
+ 
   setProductUpdate,
   productUpdate,
+ 
 }) => {
   const fileInputRef = useRef();
   const [imgPreview, setImgPreview] = useState({
@@ -22,6 +24,8 @@ const ButtonUpload = ({
       ...productUpdate,
       img: e.target.files[0],
     });
+
+    
   };
   useEffect(() => {
     return () => {

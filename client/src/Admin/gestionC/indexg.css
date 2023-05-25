@@ -75,7 +75,7 @@
   .tabaccount {
     margin-top: 1px;
     margin-left: 15%;
-    margin-right: 10%;
+  
   }
   
   /* **************************************ShowList********************************************************************** */
@@ -101,12 +101,17 @@
   
   /* **************************************ShowList********************************************************************** */
   .Total {
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    right: 0;
-    margin-right: 20px;
-    margin-bottom: 5px;
+    left: 250px;
+    right: 850px;
+    top:600px;
+    /* bottom: 0; */
+    margin-left:250px 900px;
+    /* margin-left: 250px; */
+    margin-bottom: 70px;
     text-align: center;
+    
     /* color: red; */
     font-weight: 100;
     font-size: 25px;
@@ -120,7 +125,6 @@
     padding: 2px 30px;
     border: outset;
     color: white;
-    /* height: 50px; */
   }
   .iconManager {
     vertical-align: middle;
@@ -254,8 +258,8 @@
   .Total1 {
     position: absolute;
     bottom: 0;
-    right: 0  ;
-    margin-right: 1180px;
+    right: 0;
+    margin-right: 20px;
     margin-bottom: 5px;
     text-align: center;
     /* color: red; */
@@ -263,8 +267,70 @@
     font-size: 25px;
     background: linear-gradient(
       90deg,
-      rgb(108, 209, 249) 0%,
-      rgb(126, 136, 246) 100%
+      hsla(29, 92%, 70%, 1) 0%,
+      hsla(0, 87%, 73%, 1) 100%
     );
+    border-radius: 10px;
+    letter-spacing: 0.15em;
+    padding: 2px 30px;
+    border: outset;
+    color: white;
+    /* height: 50px; */
+  }
+
+  .Total2 {
+    position: fixed;
+    bottom: 0;
+    left: 250px;
+    right: 850px;
+    /* top:600px; */
+    /* bottom: 0; */
+    margin-left:250px 900px;
+    /* margin-left: 250px; */
+    margin-bottom: 10px;
+    text-align: center;
+    
+    /* color: red; */
+    font-weight: 100;
+    font-size: 25px;
+    background: linear-gradient(
+      90deg,
+      hsla(29, 92%, 70%, 1) 0%,
+      hsla(0, 87%, 73%, 1) 100%
+    );
+    border-radius: 10px;
+    letter-spacing: 0.15em;
+    padding: 2px 30px;
+    border: outset;
+    color: white;
     cursor: pointer;
+  }
+
+  .Total3 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 70px;
+    text-align: center;
+    top:600px;
+    /* color: red; */
+    font-weight: 100;
+    font-size: 25px;
+    background: linear-gradient(
+      90deg,
+      hsla(29, 92%, 70%, 1) 0%,
+      hsla(0, 87%, 73%, 1) 100%
+    );
+    border-radius: 10px;
+    letter-spacing: 0.15em;
+    padding: 2px 30px;
+    border: outset;
+    color: white;
+    /* height: 50px; */
+  }
+  
+  .container {
+    display: flex;
+    justify-content: flex-start;
   }

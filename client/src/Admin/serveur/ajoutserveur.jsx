@@ -40,6 +40,15 @@ const Ajoutserveur = () => {
 		navigate.push('/loginser')
 	  }
 	}, []);
+
+	// function nbr(){
+	// 	String  ch="0123456789"
+	// 	for (let i = 0; i<ch.length; i++){
+	// 		if(data.cin[1]!=ch){
+	// 			alert("errrrrrrrrrrror")
+	// 		}
+	// 	  }
+	// }
 	return (
 		
 
@@ -51,11 +60,11 @@ const Ajoutserveur = () => {
 						<h1>Creer un nouveau serveur </h1>
 						<input
 							type="text"
-							placeholder="firstName"
+							placeholder="nom et prenom"
 							name="firstName"
 							onChange={handleChange}
 							value={data.firstName}
-							required
+							require 
 							className={styles.input}
 						/>
 						<input
@@ -79,7 +88,7 @@ const Ajoutserveur = () => {
 						/>
 						<input
 							type="password"
-							placeholder="password"
+							placeholder="mot passe"
 							name="password"
 							onChange={handleChange}
 							value={data.password}
@@ -88,12 +97,12 @@ const Ajoutserveur = () => {
 						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>
-							Sing In
+							Ajouter Serveur
 						</button>
 					</form>
 				</div>
 				<div className={styles.right}>
-					<h1>New Here ?</h1>
+					
 					{/* <Link to="/signup">
 						<button type="button" className={styles.white_btn}>
 							Sing Up

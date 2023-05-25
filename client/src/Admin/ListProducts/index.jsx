@@ -79,7 +79,7 @@ const ListProducts = () => {
   }, []);
   return (
     <>
-        <div className="grid"> <div className='iconManager'><h2>   La gestion des Produits </h2></div></div>
+      <div className="grid"> <div className='iconManager'><h2>   La gestion des Produits </h2></div></div>
 
       {/* {filter} */}
       <div className="listProducts-heading">
@@ -96,7 +96,7 @@ const ListProducts = () => {
                   : {}
               }
             >
-              menu
+              tous
             </button>
             {typeProducts.map((typeProduct, index) => {
               if (index !== 0)
@@ -117,7 +117,7 @@ const ListProducts = () => {
             })}
           </div>
         )}
-      
+
         <AddType />
         {selectFilter > -1 && (
           <button
@@ -130,23 +130,23 @@ const ListProducts = () => {
         <AddModal />
       </div>
 
-    
+
       <div className="listProducts-content">
         <table className="listProducts-content-table">
           <tbody className="tbody-nth">
-          
+
             <tr className="listProducts-content-row-heading-table">
               <th className="listProducts-content-row-heading">SKU</th>
               <th className="listProducts-content-row-heading">Produit</th>
               <th className="listProducts-content-row-heading">
-              Famille Produit
+                Famille
               </th>
               <th className="listProducts-content-row-heading">Quantité</th>
               <th className="listProducts-content-row-heading">Description</th>
-              <th className="listProducts-content-row-heading">Prix</th>  
+              <th className="listProducts-content-row-heading">Prix</th>
               <th className="listProducts-content-row-heading"></th>
               <th className="listProducts-content-row-heading">
-                
+
               </th>
             </tr>
 

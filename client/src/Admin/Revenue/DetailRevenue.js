@@ -21,7 +21,7 @@ export default function DetailRevenue(props) {
                 console.log(response.data);
             });
         }  
-        getData(order);
+       getData(order);
     })
     const refreshPage = () => {
         window.location.reload(false);
@@ -38,12 +38,16 @@ export default function DetailRevenue(props) {
                 trigger={
                     <Container fluid>
                     <Row className="elementlist">
-                        <Col sm={2}> <h2 className="element">{props.order.userName}</h2></Col>
-                        <Col sm={4}> <h2 className="element">
+                        <Col > <h2 className="element">{props.order.userName}</h2></Col>
+                       
+                        <Col > <h2 className="element">{props.order.usingMethod}</h2></Col>
+                        <Col > <h2 className="oderprice">{props.order.totalPrice.toLocaleString()}.000 TND</h2></Col>
+                        <Col > <h2 className="element">{props.order.paidAt}</h2></Col>
+
+                        <Col > <h2 className="element">
                             {props.order.isPaid ? <FcOk  className="iconRevenue" size={20} color="green"/> : <AiOutlineCloseCircle size={20} color="red"/>}</h2>
                         </Col>
-                        <Col sm={4.8}> <h2 className="element">{props.order.usingMethod}</h2></Col>
-                        <Col sm={1.2}> <h2 className="oderprice">{props.order.totalPrice.toLocaleString()}.000 VNĐ</h2></Col>
+
                     </Row>
                     </Container>
                 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './index.css'
+import './indexg.css'
 import { Container, Row, Col } from 'react-grid-system';
 // import Popup from "reactjs-popup";
 
@@ -13,55 +13,12 @@ import { object } from 'joi';
 
 export default function Typeproduit() {
     // const [Staffs, setStaff] = React.useState(null);
-    const renderSwitch = (search, current) => {
-        switch (search) {
-            case 2:
-                return result.filter(data => data.usingMethod.includes(current)).map(order => (
-                    <DetailRevenue order={order} />
-                ))
-            case 3:
-                return result.filter(data => data.totalPrice > (current)).map(order => (
-                    <DetailRevenue order={order} />
-                ))
-            default:
-                return result.filter(data => data.userName.includes(current)).map(order => (
-                    <DetailRevenue order={order} />
-                ))
-        }
-    }
-    const choices = [
-        {
-            id: 1,
-            name: "Commandeur"
-        },
-        {
-            id: 2,
-            name: "Former"
-        },
-        {
-            id: 3,
-            name: "Prix ​​unitaire"
-        }
-    ]
+   
+
 
     const [Orders, setOrder] = React.useState([]);
 
-    const [show, setshow] = useState(false);
-    const [current, setCurrent] = React.useState("");
-    const [checked, setChecked] = React.useState(-1);
-    const hasTransitionedIn = useMountTransition(show, 1000);
-    // const getdata = async () => {
-
-    //     const res = await fetch(`http://localhost:5000/api/revenu/${id}`, {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         }
-    //     });
-
-    //     const data = await res.json();
-    //     console.log("ma data",data);
-    // }
+   
 
     React.useEffect(() => {
         axios.get("http://localhost:5000/revenue/order").then((response) => {
@@ -78,8 +35,15 @@ export default function Typeproduit() {
     // Initialize an empty object to hold the name and price sums
     const namePriceSums = {};
     const data = Orders
-
-
+   
+    
+    const filterDataByName = (paidAt) => {
+        return data.filter((entry) => entry.paidAt === paidAt);
+      };
+    
+      // Get all entries with the same name
+      const filteredData = filterDataByName("25/05/2023");
+      console.log("data please",filteredData)
     // Iterate over the data and calculate the price sums
     data.forEach(item => {
         const { userName, totalPrice } = item;
@@ -98,7 +62,7 @@ export default function Typeproduit() {
     }
 
 
-
+ 
     const keys = Object.keys(namePriceSums)
 
 
@@ -111,7 +75,7 @@ export default function Typeproduit() {
                     <Row>
                         <Col lg={9}>
                             {" "}
-                            <h2><BiRestaurant className="iconManager" />   La gestion des Recette </h2>
+                            <BiRestaurant className="grid" /> <h2 className='text'>  La gestion des recette </h2>
                         </Col>
                         <Col lg={3}>
                             {" "}
@@ -121,72 +85,64 @@ export default function Typeproduit() {
                 </Container>
             </div>
 
-            {(hasTransitionedIn || show) && <div className="tableChoice">
-                {choices.map(choice => (
-                    <i className={`choice ${hasTransitionedIn && "in"} ${show && "visible"}`} key={choice.id}>
-                        <input
-                            type="radio"
-                            onChange={() => setChecked(choice.id)}
-                            checked={choice.id === checked}
-                        />
-                        {choice.name}
-                    </i>
-                ))}
-            </div>}
-            <form className="searchAccount" action="/" method="get">
-                {(hasTransitionedIn || show) && <input
-                    className={`formSearch ${hasTransitionedIn && "in"} ${show && "visible"}`}
-                    value={current}
-                    type="text"
-                    id="header-search"
-                    onChange={e => setCurrent(e.target.value)}
-                    name="seachAccount"
-                />}
-                {<div className="searchButton" onClick={() => setshow(!show)}><FaSearch size={25} className="searchIcon" /></div>}
-                {/* {show && <button className="searchButton" onClick={() => setshow(true)}><FaSearch size={25} className="searchIcon" /></button>} */}
-            </form>
+
+
             <div className="tabaccount">
                 <div>
                     <Container className="showlist" fluid>
                         <Row>
                             <Col > <h2 className="columlist">Commandeur</h2></Col>
 
-                            <Col > <h2 className="columlist">caisse</h2></Col>
+                            <Col > <h2 className="columlist">Total Realiser</h2></Col>
                         </Row>
                     </Container>
                     <Container className="contentlist_Revenue" fluid>
-                    {keys.map(key => (
-                                <div key={key}>
-                        <Row>
-                        
-                                    
-                              
-                            <Col > <h2 className=""> {key} </h2></Col>
+                        {keys.map(key => (
+                            <div key={key}>
+                                <Row>
 
-                            <Col > <h2 className=""> {namePriceSums[key]}</h2></Col>
-                           
-                            
-                        </Row>
-                        </div>
+                                    <Col > <h2 className=""> {key} </h2></Col>
+
+                                    <Col > <h2 className=""> {namePriceSums[key]} TND</h2></Col>
+
+
+                                </Row>
+                            </div>
                         ))}
 
                     </Container>
                     <div className="">
                         <div>
-                          
+
                         </div>
-                    
-                </div>
-                <div className="Total">revenu total: {
+
+                    </div>
+                    <div className='container'>
+                        <div className="Total">revenu total: {
+                            Orders.reduce((sum, i) => (
+                                sum = (sum + i.totalPrice) - (i.isPaid ? i.totalPrice : 0)
+                                ), 0).toLocaleString()
+                        } TND</div>
+
+                        <div className="Total2">Annulation: {
+                            Orders.reduce((sum, i) => (
+                                sum +=i.isPaid ? i.totalPrice : 0
+                            ), 0).toLocaleString()
+                        } TND</div></div>
+                    <div className="Total1"> a table: {
                         Orders.reduce((sum, i) => (
-                            sum = (sum + i.totalPrice) - (i.isPaid ? i.totalPrice : 0)
+
+                            sum += i.usingMethod == "a table" ? i.totalPrice : 0
                         ), 0).toLocaleString()
-                    }.0 D</div>
+                    } TND</div>
+                    <div className="Total3"> a emporter: {
+                        Orders.reduce((sum, i) => (
 
-               
-
-            </div>
-        </div >
+                            sum += i.usingMethod == "emporter" ? i.totalPrice : 0
+                        ), 0).toLocaleString()
+                    } TND</div>
+                </div>
+            </div >
         </>
     )
 }

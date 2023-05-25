@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 const serveur = require("../model/serveur");
 
 
@@ -82,42 +82,7 @@ router.put("/:id",async(req,res)=>{
 
 
 
-// PUT http://localhost:5000/api/serveur/id
-// Update data len server
-// router.put("/:id", async (req, res) => {
-//   const { firstName, cin, email, password } = req.body;
-//   // Check name
-//   if (!firstName)
-//     return res
-//       .status(400)
-//       .json({ success: false, message: "Name is required" });
 
-//   console.log(req.params.id);
-//   try {
-//     // All good
-//     let updateserveur = {
-//         firstName,
-//         cin,
-//         email,
-//         password,
-//     };
-//     const conditionUpdated = { _id: req.params.id };
-//     updateserveur = await serveur.findOneAndUpdate(
-//       conditionUpdated,
-//       updateserveur,
-//       {
-//         new: true,
-//       }
-//     );
-//     res.send({ success: true, serveur: updateserveur });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({ success: false, message: "Internal server error" });
-//   }
-// });
-
-// DELETE http://localhost:5000/api/serveur/id
-// Delete serveur
 
 router.delete("/:id", async (req, res) => {
   try {
@@ -154,21 +119,21 @@ router.post("/login", async (req, res) => {
   try {
   
     const user = await serveur.findOne( {email:req.body.email} );
-    console.log(user)
+  
     if (!user) {
         return res.status(404).send("user not found");
     }
 
-    const correctPassword = await bcrypt.compare(req.body.password, user.password);
-    console.log(correctPassword)
-    if (correctPassword) {
+    // const correctPassword = await bcrypt.compare(req.body.password, user.password);
+    // console.log(correctPassword)
+    if (req.body.password!=user.password) {
         return res.status(400).json("incorrect password");
     }
     const token = user.generateAuthToken();
   
     
     res.status(200).send({ user, data: token , message: "logged in successfully" });
-    console.log(token);
+  
     console.log("log is succ");
   } catch (err) {
     console.log(err);

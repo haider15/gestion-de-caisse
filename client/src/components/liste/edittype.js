@@ -86,7 +86,7 @@ const Edittype = () => {
         if(res2.status === 422 || !data2){
             alert("fill the data");
         }else{
-            history.push("/type")
+            history.push("/nav/type")
             // setUPdata(data2);   
         
         }
@@ -95,7 +95,6 @@ const Edittype = () => {
 
     return (
         <div className="container">
-            <NavLink to="/">home2</NavLink>
             <form className="mt-4">
                 <div className="row">
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
@@ -105,8 +104,15 @@ const Edittype = () => {
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
                         <label for="exampleInputPassword1" class="form-label">img</label>
                         <input type="img" value={inpval.img} onChange={setdata} name="img" class="form-control" id="exampleInputPassword1" />
+                       
                     </div>
-                  
+                    <ButtonUpload
+                 
+                    text="Choisissez une photo"
+                  src={inpval.img}
+                  onChange={setdata} 
+                  name="img"
+                />
                    
                 
 

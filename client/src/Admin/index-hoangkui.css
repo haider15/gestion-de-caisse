@@ -105,10 +105,13 @@ tr:nth-child(even) {
 
 /* table */
 .listProducts-content-table {
-  width: 100%;
+  width: 85%;
   margin: 0;
   border-collapse: collapse;
   text-align: center;
+  margin-left: 240px;
+  margin-right: 900px;
+  
 }
 .listProducts-content-row {
   cursor: pointer;

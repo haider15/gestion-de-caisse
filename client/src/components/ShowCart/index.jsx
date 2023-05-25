@@ -81,7 +81,7 @@ const ShowCart = () => {
                 <p className="cart-payment-total-origin">
                   {context.cart.reduce((total, curr) => {
                     return total += curr.quantity * curr.price;
-                  }, 0)} .000 D</p>
+                  }, 0)} .000 TND</p>
                 {/* <p className="cart-payment-total-tax">
                   (Incl.tax 10% = Kr 12.30)
                 </p> */}

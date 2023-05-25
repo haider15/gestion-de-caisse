@@ -98,27 +98,27 @@
 }
 
 /* **************************************ShowList********************************************************************** */
-.Total {
+.Total1 {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-right: 20px;
-  margin-bottom: 5px;
-  text-align: center;
-  /* color: red; */
-  font-weight: 100;
-  font-size: 25px;
-  background: linear-gradient(
-    90deg,
-    hsla(29, 92%, 70%, 1) 0%,
-    hsla(0, 87%, 73%, 1) 100%
-  );
-  border-radius: 10px;
-  letter-spacing: 0.15em;
-  padding: 2px 30px;
-  border: outset;
-  color: white;
-  /* height: 50px; */
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+    /* color: red; */
+    font-weight: 100;
+    font-size: 25px;
+    background: linear-gradient(
+      90deg,
+      hsla(29, 92%, 70%, 1) 0%,
+      hsla(0, 87%, 73%, 1) 100%
+    );
+    border-radius: 10px;
+    letter-spacing: 0.15em;
+    padding: 2px 30px;
+    border: outset;
+    color: white;
+    /* height: 50px; */
 }
 .iconManager {
   vertical-align: middle;
@@ -243,7 +243,7 @@
   height: 46.52px;
 }
 
-.Total1 {
+.Total5 {
   position: absolute;
   bottom: 0;
   right: 0  ;
@@ -264,4 +264,9 @@
   background-color: #cccccc;
   border-top-right-radius: 20px;
   border: groove;
+  margin-left: 350px;
+}
+.text{
+  margin-left: 60%;
+  margin-right: 10%;
 }

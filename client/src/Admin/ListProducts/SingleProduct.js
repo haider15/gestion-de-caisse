@@ -51,10 +51,10 @@ const SingleProduct = ({ product, index }) => {
   const { _id, name, typeProduct, price, count, description, img } = product;
   const handleRemove = () => {
     swal({
-      title: "Es-tu sûr?",
-      text: "Vous ne pourrez pas restaurer si vous utilisez cette action.",
+      title: "etes vous sur?",
+      text: "le produit sera définitivement supprimer.",
       icon: "warning",
-      buttons: true,
+      buttons: ["annule ","supprimer"],
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {

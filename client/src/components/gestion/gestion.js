@@ -5,6 +5,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { NavLink } from 'react-router-dom';
 import { deldata } from './ContextProvider';
 // import { updatedata } from './context/ContextProvider'
+import swal from "sweetalert";
 
 import "../../Admin/index-hoangkui.css";
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -48,24 +49,27 @@ const Gestion = () => {
 
     const deleteuser = async (id) => {
 
-        const res2 = await fetch(`http://localhost:5000/api/serveur/${id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-
-        const deletedata = await res2.json();
-        console.log(deletedata);
-
-        if (res2.status === 422 || !deletedata) {
-            console.log("error");
-        } else {
-            console.log("user deleted");
-
-            getdata();
-        }
-
+        swal({
+            title: "Etes-vous sûr?",
+            text: "Le serveur sera définitive",
+            icon: "warning",
+            content: "annuler",
+            buttons: ["annule ","supprimer"],
+            value:"supprimer",
+            dangerMode: true,
+          }).then((will) => {
+            if ( will) {
+                const res2 =  fetch(`http://localhost:5000/api/serveur/${id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+           
+            
+              window.location.reload(false);
+        } 
+          });
     }
 
 
@@ -88,10 +92,10 @@ const Gestion = () => {
                     <thead className="tbody-nth">
                         <tr className="listProducts-content-row-heading-table">
                             <th scope="col" className="listProducts-content-row-heading">id</th>
-                            <th scope="col"className="listProducts-content-row-heading">firstName</th>
+                            <th scope="col"className="listProducts-content-row-heading">Nom et Prenom</th>
                             <th scope="col"className="listProducts-content-row-heading">cin</th>
                             <th scope="col"className="listProducts-content-row-heading">email</th>
-                            <th scope="col"className="listProducts-content-row-heading">password</th>
+                            <th scope="col"className="listProducts-content-row-heading">Mot Passe</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>

@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { User  } = require("../model/user");
-const bcrypt = require("bcrypt");
-
+// const bcrypt = require('bcrypt');
 
 
 router.post("/register", (req, res) => {
@@ -25,21 +24,21 @@ router.post("/login", async (req, res) => {
   try {
   
     const user = await User.findOne( {email:req.body.email} );
-    console.log(user)
+
     if (!user) {
         return res.status(404).send("user not found");
     }
-
-    const correctPassword = await bcrypt.compare(req.body.password, user.password);
-    console.log(correctPassword)
-    if (correctPassword) {
+     
+    // const correctPassword = await bcrypt.compare(req.body.password, user.password);
+    // console.log(correctPassword)
+    if (user.password!=req.body.password) {
         return res.status(400).json("incorrect password");
     }
     const token = user.generateAuthToken();
   
     
     res.status(200).send({ user, data: token , message: "logged in successfully" });
-    console.log(token);
+    
     console.log("log is succ");
   } catch (err) {
     console.log(err);

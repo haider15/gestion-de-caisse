@@ -7,6 +7,16 @@ import axios from "axios";
 import "./index.css";
 import {useParams} from 'react-router-dom';
 const Payment = (props) => {
+  let  date = new Date();
+   let year = date.getFullYear();
+  let month = date.getMonth() + 1;
+ let  day = date.getDate();
+  day = day.toString().padStart(2, 0);
+  month = month.toString().padStart(2, 0);
+  year = year.toString().padStart(4, 0);
+  // let date1=date2.getMonth()
+
+  let paidAt=+day+"/"+month+"/"+year ;
   const [ModalOpened, setModalOpened] = useState(true);
   const [usingMethod, setusingMethod] = useState(null);
 
@@ -46,6 +56,7 @@ const Payment = (props) => {
         quantity: a.quantity,
         price: a.price,
         img: a.img,
+        
       };
       ListItems.push(this[a.name]);
     }
@@ -124,6 +135,7 @@ const Payment = (props) => {
       usingMethod: orderusingMethod,
       totalPrice: total,
       OrderItems: ListItems,
+      paidAt:paidAt
       // quantity: quantity
     };
     console.log("vcc", data);
@@ -135,6 +147,7 @@ const Payment = (props) => {
           usingMethod: orderusingMethod,
           totalPrice: total,
           OrderItems: ListItems,
+          paidAt: paidAt,
           // quantity:quantity,
         })
           // .post(`http://localhost:5000/api/produit/:prouductid`, {
@@ -149,35 +162,7 @@ const Payment = (props) => {
       console.log(error);
     }
   };
-////////////////////
 
-// const handleSubmit14 = async (event) => {
-//     event.preventDefault();
-   
-
-  
-//     const data = {
-//       quantity: quantity
-//     };
-//     console.log("vcc", data);
-//     console.log(quantity)
-//     try {
-//       await axios
-        
-//         .post(`http://localhost:5000/api/product/`+id, {
-//           quantity: quantity,
-//         })
-//         .then((res) => {
-//           // history.push("/");
-//           console.log(res.data);
-//         })
-//         .catch((error) => console.log(error));
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-
-  //////////////////
   return (
     <div>
       {ModalOpened ? (
@@ -186,10 +171,10 @@ const Payment = (props) => {
         <Form className="form-holder">
           <div className="form-content">
             <div className="form-items">
-              <h3>Chèque de paiement</h3>
+              <h3>Détails de la Commande </h3>
               <p>Remplissez les données ci-dessous.</p>
               <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Label>Nom</Form.Label>
+                <Form.Label>Serveur</Form.Label>
                 <Form.Control
                   onChange={handlenameChange}
                   type="text"
@@ -203,7 +188,7 @@ const Payment = (props) => {
                 ) : null}
               </Form.Group>
               <Form.Group controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Nombre de tables</Form.Label>
+                <Form.Label>Numero de Table</Form.Label>
                 <Form.Control
                   as="select"
                   value={table}
@@ -225,7 +210,7 @@ const Payment = (props) => {
               </Form.Group>
               <div className="buttons-list">
                 <Link to="/">
-                  <Button className="secondary">Retour à la boutique</Button>
+                  <Button className="secondary">Annulation</Button>
                 </Link>
                 <Button className="primary" onClick={updateState}>
                 Suivant
@@ -238,13 +223,13 @@ const Payment = (props) => {
         <Form className="form-holder">
           <div className="form-content">
             <div className="form-items">
-              <h3>Chèque de paiement</h3>
+              <h3>detaille commande</h3>
               <p>Remplissez les données ci-dessous.</p>
               <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
               >
-                <Form.Label>Nom</Form.Label>
+                <Form.Label>Serveur</Form.Label>
                 <Form.Control
                   onChange={handlenameChange}
                   type="text"
@@ -290,7 +275,7 @@ const Payment = (props) => {
               </Form.Group>
               <div className="buttons-list">
                 <Link to="/">
-                  <Button className="secondary">Retour à la boutique</Button>
+                  <Button className="secondary">Annulation</Button>
                 </Link>
                 <Button className="primary" onClick={updateState}>
                 Suivant
@@ -299,38 +284,38 @@ const Payment = (props) => {
             </div>
           </div>
         </Form>
+      // ) : state === 2 ? (
+      //   <Form className="form-holder">
+      //     <div className="form-content">
+      //       <div className="form-items">
+      //         <h3>Vérifiez votre panier</h3>
+      //         <p>Vérifiez tous les produits ci-dessous.</p>
+      //         <ul className="payment-cart-list">
+      //           {cartcontext.map((cartItem, index) => {
+      //             return (
+      //               <Cartreview
+      //                 className="payment-cart-item"
+      //                 item={cartItem}
+      //                 index={index}
+      //               />
+      //             );
+      //           })}
+      //         </ul>
+      //         <div className="payment-total-price">
+      //         Prix ​​total: {total} .000 D
+      //         </div>
+      //         <div className="buttons-list">
+      //           <Button className="secondary" onClick={backState}>
+      //            Retour
+      //           </Button>
+      //           <Button className="primary" onClick={updateState}>
+      //           Suivant
+      //           </Button>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   </Form>
       ) : state === 2 ? (
-        <Form className="form-holder">
-          <div className="form-content">
-            <div className="form-items">
-              <h3>Vérifiez votre panier</h3>
-              <p>Vérifiez tous les produits ci-dessous.</p>
-              <ul className="payment-cart-list">
-                {cartcontext.map((cartItem, index) => {
-                  return (
-                    <Cartreview
-                      className="payment-cart-item"
-                      item={cartItem}
-                      index={index}
-                    />
-                  );
-                })}
-              </ul>
-              <div className="payment-total-price">
-              Prix ​​total: {total} .000 D
-              </div>
-              <div className="buttons-list">
-                <Button className="secondary" onClick={backState}>
-                 Retour
-                </Button>
-                <Button className="primary" onClick={updateState}>
-                Suivant
-                </Button>
-              </div>
-            </div>
-          </div>
-        </Form>
-      ) : state === 3 ? (
         <Form className="form-holder">
           <div className="form-content">
             <div className="form-items">
@@ -339,12 +324,16 @@ const Payment = (props) => {
               {usingMethod === "a table" ? (
                 <div>
                   <div className="payment-review">
-                    <strong>Nom du client:</strong>
-                    <span>{name}</span>
+                    <strong>serveur:</strong>
+                    <span>{firstName}</span>
                   </div>
                   <div className="payment-review">
-                    <strong>Numéro de table:</strong>
+                    <strong>Numero de Table:</strong>
                     <span>{table}</span>
+                  </div>
+                  <div className="payment-review">
+                    <strong>date:</strong>
+                    <span>{paidAt}</span>
                   </div>
                   <div className="payment-review">
                     <strong>Les commandes:</strong>
@@ -364,8 +353,8 @@ const Payment = (props) => {
               ) : usingMethod === "emporter" ? (
                 <div>
                   <div className="payment-review">
-                    <strong>Nom du client:</strong>
-                    <span>{name}</span>
+                    <strong>Serveur:</strong>
+                    <span>{firstName}</span>
                   </div>
                   <div className="payment-review">
                     <strong>Adresse:</strong>
@@ -375,8 +364,12 @@ const Payment = (props) => {
                     <strong>Numéro de téléphone:</strong>
                     <span>{number}</span>
                   </div>
+                  {/* <div className="payment-review">
+                    <strong>Numéro de ed:</strong>
+                    <span>{this.state.date}</span>
+                  </div> */}
                   <div className="payment-review">
-                    <strong>les commandes:</strong>
+                    <strong>La Commande:</strong>
                     <ul className="payment-cart-list">
                       {cartcontext.map((cartItem, index) => {
                         return (
@@ -392,14 +385,14 @@ const Payment = (props) => {
                 </div>
               ) : null}
               <div className="payment-total-price">
-              Prix ​​total: {total} .000 D
+              Prix ​​total: {total} .000 TND
               </div>
               <div className="buttons-list">
                 <Button className="secondary" onClick={backState}>
                   Retour
                 </Button>
                 <Button className="primary" onClick={handleSubmit}>
-                  passer
+                  Valider
                 </Button>
               </div>
             </div>

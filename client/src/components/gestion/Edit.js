@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { NavLink, useParams,useHistory } from 'react-router-dom'
 import { updatedata } from './ContextProvider'
+import styles from "./styles.module.css";
 
 
-const Edit = () => {
+const Edit = (props) => {
 
     // const [getuserdata, setUserdata] = useState([]);
     // console.log(getuserdata);
 
-   const {updata, setUPdata} = useContext(updatedata)
+const {updata, setUPdata} = useContext(updatedata)
 
     const history = useHistory("");
 
@@ -17,7 +18,7 @@ const Edit = () => {
         cin: "",
         email: "",
         password: "",
-       
+    
     })
 
     const setdata = (e) => {
@@ -95,34 +96,65 @@ const Edit = () => {
     }
 
     return (
-        <div className="container">
-            <NavLink to="/">home2</NavLink>
-            <form className="mt-4">
-                <div className="row">
-                    <div class="mb-3 col-lg-6 col-md-6 col-12">
-                        <label for="exampleInputEmail1" class="form-label">Name</label>
-                        <input type="text" value={inpval.firstName} onChange={setdata} name="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="cinHelp" />
-                    </div>
-                    <div class="mb-3 col-lg-6 col-md-6 col-12">
-                        <label for="exampleInputPassword1" class="form-label">cin</label>
-                        <input type="cin" value={inpval.cin} onChange={setdata} name="cin" class="form-control" id="exampleInputPassword1" />
-                    </div>
-                    <div class="mb-3 col-lg-6 col-md-6 col-12">
-                        <label for="exampleInputPassword1" class="form-label">email</label>
-                        <input type="text" value={inpval.email} onChange={setdata} name="email" class="form-control" id="exampleInputPassword1" />
-                    </div>
-                    <div class="mb-3 col-lg-6 col-md-6 col-12">
-                        <label for="exampleInputPassword1" class="form-label">Mobile</label>
-                        <input type="number" value={inpval.password} onChange={setdata} name="password" class="form-control" id="exampleInputPassword1" />
-                    </div>
-                   
-                
+        <div className={styles.login_container}>
+			<div className={styles.login_form_container}>
+				<div className={styles.left}>
+					<form className={styles.form_container} onSubmit={updateuser}>
+						<h1>Creer  un nouveau serveur</h1>
+						<input
+							type="text"
+							placeholder="nom et prenom"
+							name="firstName"
+							onChange={setdata}
+							value={inpval.firstName}
+							require 
+							className={styles.input}
+						/>
+						<input
+							type="text"
+							placeholder="cin"
+							name="cin"
+							onChange={setdata}
+							value={inpval.cin}
+							required
+							className={styles.input}
+						/>
 
-                    <button type="submit" onClick={updateuser} class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-        </div>
-    )
-}
+<input
+							type="email"
+							placeholder="email"
+							name="email"
+							onChange={setdata}
+							value={inpval.email}
+							required
+							className={styles.input}
+						/>
+						<input
+							type="text"
+							placeholder="mot passe"
+							name="password"
+							onChange={setdata}
+							value={inpval.password}
+							required
+							className={styles.input}
+						/>
+                            {/* {error && <div className={styles.error_msg}>{error}</div>} */}
+						<button type="submit" className={styles.green_btn}>
+							Modification
+						</button>
+					</form>
+				</div>
+				<div className={styles.right}>
+					
+					{/* <Link to="/signup">
+						<button type="button" className={styles.white_btn}>
+							Sing Up
+						</button>
+					</Link> */}
+				</div>
+			</div>
+		</div>
+    );
+};
 
 export default Edit;

@@ -38,7 +38,7 @@ const Login = () => {
 			<div className={styles.login_form_container}>
 				<div className={styles.left}>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1 >Login to Your Admin Account</h1>
+						<h1 >Authentification</h1>
 						<input
 							type="email"
 							placeholder="Email"
@@ -50,7 +50,7 @@ const Login = () => {
 						/>
 						<input
 							type="password"
-							placeholder="Password"
+							placeholder="Mot Passe"
 							name="password"
 							onChange={handleChange}
 							value={data.password}
@@ -59,15 +59,15 @@ const Login = () => {
 						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>
-							Sing In
+							Connecter
 						</button>
 					</form>
 				</div>
 				<div className={styles.right}>
-					<h1>serveur ?</h1>
+					<h1>Serveur </h1>
 					<Link to="/loginser">
 						<button type="button" className={styles.white_btn}>
-							user
+							Changer
 						</button>
 					</Link>
 				</div>

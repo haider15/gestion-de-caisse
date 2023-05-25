@@ -49,18 +49,7 @@ export default function Revenue() {
     const [current, setCurrent] = React.useState("");
     const [checked, setChecked] = React.useState(-1);
     const hasTransitionedIn = useMountTransition(show, 1000);
-    // const getdata = async () => {
-
-    //     const res = await fetch(`http://localhost:5000/api/revenu/${id}`, {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         }
-    //     });
-
-    //     const data = await res.json();
-    //     console.log("ma data",data);
-    // }
+ 
 
     React.useEffect(() => {
         axios.get("http://localhost:5000/revenue/order").then((response) => {
@@ -70,8 +59,7 @@ export default function Revenue() {
     }, []);
     if (!Orders) return null;
     let result = [...Orders];
-    // if(result[1]) console.log("arayy",result[1].id);
-    ////////////////////////////
+
     const deleteuser = async (id) => {
 
         const res2 = await fetch(`http://localhost:5000/api/orders`, {
@@ -94,14 +82,7 @@ export default function Revenue() {
 
     }
 
-    const data = Orders
-    let persons = [];
-    for (let i = 0; i<data.length; i++){
-      persons.push(<p>{data[i].userName}</p>)
-    }
 
-
-    /////////////////////////
     return (
         <>
             <div className="panel-content">
@@ -109,7 +90,7 @@ export default function Revenue() {
                     <Row>
                         <Col lg={9}>
                             {" "}
-                             <BiRestaurant className="grid" /> <h2>  La gestion des commandes </h2>
+                             <BiRestaurant className="grid" /> <h2 className='text'>  La gestion des commandes </h2>
                         </Col>
                         <Col lg={3}>
                             {" "}
@@ -147,32 +128,27 @@ export default function Revenue() {
                 <div>
                     <Container className="showlist" fluid>
                         <Row>
-                            <Col sm={1.9}> <h2 className="columlist">Commandeur</h2></Col>
-                            <Col sm={4.2}> <h2 className="columlist">Annulation</h2></Col>
-                            <Col sm={4.4}> <h2 className="columlist">Former</h2></Col>
-                            <Col sm={1.3}> <h2 className="columlist">Prix ​​unitaire</h2></Col>
+                            <Col > <h2 className="columlist">Serveur</h2></Col>
+                            <Col > <h2 className="columlist">Type</h2></Col>
+
+                            <Col > <h2 className="columlist">Prix ​​unitaire</h2></Col>
+                            <Col > <h2 className="columlist">date</h2></Col>
+                            <Col > <h2 className="columlist">Annulation</h2></Col>
+                           
                         </Row>
                     </Container>
                     <div className="contentlist_Revenue">
-                        {renderSwitch(checked, current)}
+                    {renderSwitch(checked, current)}
                     </div>
-                    <div className="Total">revenu total: {
+                    <div className="Total1"> Total: {
                         Orders.reduce((sum, i) => (
                             sum = (sum + i.totalPrice) - (i.isPaid ? i.totalPrice : 0)
                         ), 0).toLocaleString()
-                    }.0 D</div>
-                    {/* {/*                     
-                 
+                    }TND</div>
                     
-                    {/* <div className="Total">revenu2 total: {
-                        Orders.reduce((sum, i) => (
-                            
-                            sum +=  i.userName=="haider" ?  i.totalPrice : 0  
-                        ), 0).toLocaleString()
-                    }.0 D</div> */}
                    
                     
-                    <div className="Total1" onClick={deleteuser}> supprimer</div>
+                    {/* <div className="Total2" onClick={deleteuser}> supprimer</div> */}
                 </div>
             </div>
         </>

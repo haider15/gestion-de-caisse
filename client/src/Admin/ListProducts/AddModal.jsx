@@ -115,7 +115,7 @@ const AddModal = () => {
     closeModal();
     swal(
       "success",
-      "le plat est ajouter",
+      "Le produit est ajouter",
       "success"
     );
     window.location.reload(true)

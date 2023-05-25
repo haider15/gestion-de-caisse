@@ -7,6 +7,10 @@ import { deldata } from '../gestion/ContextProvider';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ButtonUpload from '../../Admin/ButtonUpload';
 import './liste.css';
+import { Link } from "react-router-dom";
+import swal from "sweetalert";
+import AddType from '../../Admin/ListProducts/AddType';
+
 function Liste() {
     const [getuserdata, setUserdata] = useState([]);
     console.log(getuserdata);
@@ -38,6 +42,10 @@ function Liste() {
 
         }
     }
+    function addtype() {
+        <AddType />
+      }
+    
 
     useEffect(() => {
         getdata();
@@ -45,25 +53,32 @@ function Liste() {
 
     const deleteuser = async (id) => {
 
-        const res2 = await fetch(`http://localhost:5000/api/liste/${id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
+       
 
-        const deletedata = await res2.json();
-        console.log(deletedata);
-
-        if (res2.status === 422 || !deletedata) {
-            console.log("error");
-        } else {
-            console.log("user deleted");
-
-            getdata();
-        }
+       
+        swal({
+            title: "Etes-vous sûr?",
+            text: "Tous les produits liées seront aussi supprimer",
+            icon: "warning",
+            buttons: ["annule ","supprimer"],
+            dangerMode: true,
+          }).then((will) => {
+            if ( will) {
+                const res2 =  fetch(`http://localhost:5000/api/liste/${id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+           
+            
+              window.location.reload(false);
+        } 
+          });
+        
 
     }
+    
 
     return (
         <>
@@ -77,14 +92,15 @@ function Liste() {
             </div> */}
             {/* <div className="panel-content"> */}
             <div className='grid'>
-                <div className='iconManager'><h2>   La gestion Les types de Produit  </h2></div> </div>
+                <div className='iconManager'><h2>   La gestion Les Familles de Produit  </h2></div> </div>
+                <Link to="ajoutf"> ajout </Link>
             <div className="listProducts-content">
                 <table className="listProducts-content-table">
                     <thead className="tbody-nth">
                         <tr className="listProducts-content-row-heading-table">
                             <th scope="col" className="listProducts-content-row-heading">id</th>
-                            <th scope="col" className="listProducts-content-row-heading">type de produit</th>
-                            <th scope="col" className="listProducts-content-row-heading">img</th>
+                            <th scope="col" className="listProducts-content-row-heading">Nom de La Famille</th>
+                            <th scope="col" className="listProducts-content-row-heading">Image</th>
 
                             <th scope="col"></th>
                         </tr>
@@ -93,18 +109,15 @@ function Liste() {
 
                         {
                             Object.entries(getuserdata).map((element, id) => {
-                                // if(id!=0){
+                                if(id!=0){
                                 return (
                                     <>
 
                                         <tr>
                                             <th scope="row">{id + 1}</th>
                                             <td>{element[1].name}</td>
-                                            <td className='img'> <ButtonUpload
+                                           <td> <img src={element[1].img} alt="" className="listProducts-content-row-item-img" /></td>
 
-                                                src={element[1].img}
-
-                                            /></td>
 
                                             <td className="d-flex justify-content-between">
                                                 {/* <NavLink to={`view/${element[1]._id}`}> <button className="btn btn-success"><RemoveRedEyeIcon /></button></NavLink> */}
@@ -114,7 +127,7 @@ function Liste() {
                                         </tr>
                                     </>
                                 )
-                                //  }
+                                 }
                             })
                         }
                     </tbody>

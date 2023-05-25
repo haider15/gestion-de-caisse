@@ -38,7 +38,7 @@ const OrderSchema = new Schema({
     default: false,
   },
   paidAt: {
-    type: Date,
+    type: String,
   },
   isDelivered: {
     type: Boolean,

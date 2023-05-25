@@ -7,9 +7,12 @@ import { customStyles } from "./SingleProduct";
 import ButtonUpload from "../ButtonUpload";
 import AddIcon from '@mui/icons-material/Add';
 import './add.css'
+import { useHistory } from "react-router-dom"
+
 const AddType = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   let subtitle;
+	const  navigate = useHistory()
 
   function openModal() {
     setIsOpen(true);
@@ -21,7 +24,9 @@ const AddType = () => {
   function closeModal() {
     setIsOpen(false);
   }
-
+function push(){
+  navigate.push('/nav/ges');
+}
   const { typeProducts, addProduct, addTypeProduct } = useContext(adminContext);
   // const fileInput = React.createRef();
   const [newProduct, setNewProduct] = useState({
@@ -70,10 +75,15 @@ const AddType = () => {
   };
   return (
     <>
+    <div className="add" onClick={push}>
+         gestion de famille
+      </div>
      <div className="add" onClick={openModal}>
       <AddIcon  >
       </AddIcon>Ajout de Famille
       </div>
+
+      
       <Modal
         // style={{ width: 600 }}
         // className="Modal"

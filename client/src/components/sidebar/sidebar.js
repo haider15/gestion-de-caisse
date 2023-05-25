@@ -2,9 +2,9 @@
 import { useHistory } from "react-router-dom";
 import React, { useEffect } from "react";
 // Be sure to include styles at some point, probably during your bootstraping
-import LogoutIcon from '@mui/icons-material/Logout';
-import PersonPinIcon from '@mui/icons-material/PersonPin';
-
+// import LogoutIcon from '@mui/icons-material/Logout';
+// import PersonPinIcon from '@mui/icons-material/PersonPin';
+import PersonPinIcon from '@mui/icons-material/PersonPin'
 
 import SideNav, {
 
@@ -45,19 +45,19 @@ class SideNavBar extends React.Component {
       <SideNav expanded={this.state.isVisible}>
 
         <SideNav.Toggle
-        onClick={() => {
-          this.setState({ isVisible: !this.state.isVisible });
-        }}
+        // onClick={() => {
+        //   this.setState({ isVisible: !this.state.isVisible });
+        // }}
         />
+
+        {/* <SideNav.PersonPinIcon  /> */}
+
 
         <SideNav.Nav defaultSelected="admin">
 
         <NavItem eventKey="placed orders1" className="profil">
             
-            {/* <PersonPinIcon></PersonPinIcon>
-             admin */}
-            
-            
+                        
 
           </NavItem>
           <NavItem eventKey="admin">
@@ -66,7 +66,7 @@ class SideNavBar extends React.Component {
               
             </NavIcon>
 
-            <NavText ><Link to="/nav/admin" >admin</Link></NavText>
+            <NavText ><Link to="/nav/admin" >Produits</Link></NavText>
 
           </NavItem>
           <NavItem eventKey="placed orders">
@@ -76,10 +76,10 @@ class SideNavBar extends React.Component {
                 style={{ fontSize: "1.75em" }}
               />
             </NavIcon>
-            <NavText ><Link to="/nav/revenu" >revenue</Link></NavText>
+            <NavText ><Link to="/nav/revenu" >Commandes</Link></NavText>
 
           </NavItem>
-          <NavItem eventKey="placed orders1">
+          <NavItem eventKey="placed orders2">
             <NavIcon>
               <i
                 className="fa fa-fw fa-line-chart"
@@ -90,7 +90,7 @@ class SideNavBar extends React.Component {
 
           </NavItem>
 
-          <NavItem eventKey="placed orders2">
+          <NavItem eventKey="placed orders3">
             <NavIcon>
               <i
                 className="fa fa-fw fa-line-chart"
@@ -100,7 +100,7 @@ class SideNavBar extends React.Component {
             <NavText> <Link to="/nav/ges" > gestion serveur </Link> </NavText>
 
           </NavItem>
-          <NavItem eventKey="placed orders3">
+          <NavItem eventKey="placed orders4">
             <NavIcon>
               <i
                 className="fa fa-fw fa-line-chart"
@@ -112,18 +112,27 @@ class SideNavBar extends React.Component {
           </NavItem>
 
 
-          <NavItem eventKey="placed orders">
+          <NavItem eventKey="placed orders5" >
             <NavIcon>
               <i
                 className="fa fa-fw fa-line-chart"
                 style={{ fontSize: "1.75em" }}
               />
             </NavIcon>
-            <NavText> <Link to="/nav/type" > famille de produit </Link> </NavText>
+            <NavText> <Link to="/nav/type" > La gestion Les Familles </Link> </NavText>
 
           </NavItem>
 
+          <NavItem eventKey="placed orders6" >
+            <NavIcon>
+              <i
+                className="fa fa-fw fa-line-chart"
+                style={{ fontSize: "1.75em" }}
+              />
+            </NavIcon>
+            <NavText> <Link to="/nav/jour" >Jour </Link> </NavText>
 
+          </NavItem>
           {/* <NavItem eventKey="placed orders3">
             <NavIcon>
               <i
