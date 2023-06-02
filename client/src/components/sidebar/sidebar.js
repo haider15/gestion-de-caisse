@@ -5,6 +5,8 @@ import React, { useEffect } from "react";
 // import LogoutIcon from '@mui/icons-material/Logout';
 // import PersonPinIcon from '@mui/icons-material/PersonPin';
 import PersonPinIcon from '@mui/icons-material/PersonPin'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 import SideNav, {
 
@@ -20,6 +22,7 @@ import { Button } from "react-bootstrap";
 //   localStorage.clear();
 //   navigate.push('/login');
 // }
+// const firstName = JSON.parse(localStorage.getItem("firstName"));
 
 class SideNavBar extends React.Component {
   constructor(props) {
@@ -38,112 +41,141 @@ class SideNavBar extends React.Component {
     //     navigate.push('/login')
     //   }
     // },[]);
+    const iconStyle = {
+      color: 'grid', // Set the desired color here
+    };
 
     return (
 
 
       <SideNav expanded={this.state.isVisible}>
 
-        <SideNav.Toggle
+        {/* <SideNav.Toggle
         // onClick={() => {
         //   this.setState({ isVisible: !this.state.isVisible });
         // }}
-        />
+        /> */}
 
         {/* <SideNav.PersonPinIcon  /> */}
 
-
+        <br></br> <br></br><br></br>
         <SideNav.Nav defaultSelected="admin">
 
-        <NavItem eventKey="placed orders1" className="profil">
-            
-                        
+          <div className="coleur">
+            <NavItem className="profil">
 
-          </NavItem>
-          <NavItem eventKey="admin">
-            <NavIcon>
-              <i className="  " style={{ fontSize: "1.75em" }} />
-              
-            </NavIcon>
+              <FontAwesomeIcon icon={faUser} size="3x" style={iconStyle} />
 
-            <NavText ><Link to="/nav/admin" >Produits</Link></NavText>
+            </NavItem>
+            <br></br>
+            <NavItem className="profil">
 
-          </NavItem>
-          <NavItem eventKey="placed orders">
-            <NavIcon>
-              <i
-                className="fa fa-fw fa-line-chart"
-                style={{ fontSize: "1.75em" }}
-              />
-            </NavIcon>
-            <NavText ><Link to="/nav/revenu" >Commandes</Link></NavText>
+              <NavText >Admin</NavText>
+            </NavItem>
+          </div> <br></br>
 
-          </NavItem>
-          <NavItem eventKey="placed orders2">
-            <NavIcon>
-              <i
-                className="fa fa-fw fa-line-chart"
-                style={{ fontSize: "1.75em" }}
-              />
-            </NavIcon>
-            <NavText> <Link to="/nav/ajout" > ajout serveur </Link> </NavText>
+          <br></br>
+          <div className="nav-item-container">
+            <NavItem eventKey="admin">
+              <NavIcon>
+                <i className="  " style={{ fontSize: "1.75em" }} />
 
-          </NavItem>
+              </NavIcon>
 
-          <NavItem eventKey="placed orders3">
-            <NavIcon>
-              <i
-                className="fa fa-fw fa-line-chart"
-                style={{ fontSize: "1.75em" }}
-              />
-            </NavIcon>
-            <NavText> <Link to="/nav/ges" > gestion serveur </Link> </NavText>
+              <NavText ><Link to="/nav/admin" >Produits</Link></NavText>
 
-          </NavItem>
-          <NavItem eventKey="placed orders4">
+            </NavItem>
+
+            <NavItem eventKey="placed orders5" >
+              <NavIcon>
+                <i
+                  className="fa fa-fw fa-line-chart"
+                  style={{ fontSize: "1.75em" }}
+                />
+              </NavIcon>
+              <NavText> <Link to="/nav/type" >  Les Familles </Link> </NavText>
+
+            </NavItem></div> <br></br>
+          <div className="nav-item-container"><NavItem eventKey="placed orders">
             <NavIcon>
               <i
                 className="fa fa-fw fa-line-chart"
                 style={{ fontSize: "1.75em" }}
               />
             </NavIcon>
-            <NavText> <Link to="/nav/gesc" > recette </Link> </NavText>
+            <NavText ><Link to="/nav/revenu" >Les Commandes</Link></NavText>
 
           </NavItem>
 
+            <NavItem eventKey="placed orders4">
+              <NavIcon>
+                <i
+                  className="fa fa-fw fa-line-chart"
+                  style={{ fontSize: "1.75em" }}
+                />
+              </NavIcon>
+              <NavText> <Link to="/nav/gesc" > Recette par Serveur </Link> </NavText>
 
-          <NavItem eventKey="placed orders5" >
-            <NavIcon>
-              <i
-                className="fa fa-fw fa-line-chart"
-                style={{ fontSize: "1.75em" }}
-              />
-            </NavIcon>
-            <NavText> <Link to="/nav/type" > La gestion Les Familles </Link> </NavText>
+            </NavItem>
+            </div>
+            <br></br>
+            <div className="nav-item-container">
+            <NavItem eventKey="placed orders6" >
+              <NavIcon>
+                <i
+                  className="fa fa-fw fa-line-chart"
+                  style={{ fontSize: "1.75em" }}
+                />
+              </NavIcon>
+              <NavText> <Link to="/nav/jour" >Recette par Jour</Link> </NavText>
 
-          </NavItem>
+            </NavItem>
 
-          <NavItem eventKey="placed orders6" >
-            <NavIcon>
-              <i
-                className="fa fa-fw fa-line-chart"
-                style={{ fontSize: "1.75em" }}
-              />
-            </NavIcon>
-            <NavText> <Link to="/nav/jour" >Jour </Link> </NavText>
+            <NavItem eventKey="placed orders6" >
+              <NavIcon>
+                <i
+                  className="fa fa-fw fa-line-chart"
+                  style={{ fontSize: "1.75em" }}
+                />
+              </NavIcon>
+              <NavText> <Link to="/nav/serj" >Recette Serveur par Jour</Link> </NavText>
 
-          </NavItem>
-          {/* <NavItem eventKey="placed orders3">
-            <NavIcon>
-              <i
-                className="fa fa-fw fa-line-chart"
-                style={{ fontSize: "1.75em" }}
-              />
-            </NavIcon>
-            <NavText   >   <LogoutIcon className="fas fa-shopping-cart1"></LogoutIcon> logout </NavText>
+            </NavItem>
+          </div> <br></br>
 
-          </NavItem> */}
+          <div className="nav-item-container">
+            <NavItem eventKey="placed orders3">
+              <NavIcon>
+                <i
+                  className="fa fa-fw fa-line-chart"
+                  style={{ fontSize: "1.75em" }}
+                />
+              </NavIcon>
+              <NavText> <Link to="/nav/ges" > Gestion par serveur </Link> </NavText>
+
+            </NavItem>
+            <NavItem eventKey="placed orders2">
+              <NavIcon>
+                <i
+                  className="fa fa-fw fa-line-chart"
+                  style={{ fontSize: "1.75em" }}
+                />
+              </NavIcon>
+              <NavText> <Link to="/nav/ajout" > Ajout serveur </Link> </NavText>
+
+            </NavItem>
+
+          </div>
+
+
+
+
+
+
+
+
         </SideNav.Nav>
+
       </SideNav>
 
     );

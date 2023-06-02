@@ -9,9 +9,15 @@ import swal from "sweetalert";
 
 import "../../Admin/index-hoangkui.css";
 import DeleteIcon from '@mui/icons-material/Delete';
+import AddType from '../../Admin/ListProducts/AddType';
 
 const Gestion = () => {
-
+    const iconStyle = {
+        color: 'blue', // Set the desired color here
+      };
+      const iconStyle1 = {
+        color: 'red', // Set the desired color here
+      };
     const [getuserdata, setUserdata] = useState([]);
     console.log(getuserdata);
 
@@ -51,7 +57,7 @@ const Gestion = () => {
 
         swal({
             title: "Etes-vous sûr?",
-            text: "Le serveur sera définitive",
+            text: "le serveur sera définitivement supprimé",
             icon: "warning",
             content: "annuler",
             buttons: ["annule ","supprimer"],
@@ -115,8 +121,8 @@ const Gestion = () => {
                                             <td>{element[1].password}</td>
                                             <td className="d-flex justify-content-between">
                                                 {/* <NavLink to={`view/${element[1]._id}`}> <button className="btn btn-success"><RemoveRedEyeIcon /></button></NavLink> */}
-                                                <NavLink to={`edit/${element[1]._id}`}>  <button className="edit"><CreateIcon color='red'/></button></NavLink>
-                                                <button className="btn btn-danger" onClick={() => deleteuser(element[1]._id)}> <DeleteIcon className='delete'/></button>
+                                                <NavLink to={`edit/${element[1]._id}`}>  <button className="edit"><CreateIcon style={iconStyle}/></button></NavLink>
+                                                <button className="btn btn-danger" onClick={() => deleteuser(element[1]._id)}> <DeleteIcon style={iconStyle1}/></button>
                                             </td>
                                         </tr>
                                     </>

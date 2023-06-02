@@ -100,7 +100,7 @@ const {updata, setUPdata} = useContext(updatedata)
 			<div className={styles.login_form_container}>
 				<div className={styles.left}>
 					<form className={styles.form_container} onSubmit={updateuser}>
-						<h1>Creer  un nouveau serveur</h1>
+						<h1>Modification Serveur</h1>
 						<input
 							type="text"
 							placeholder="nom et prenom"

@@ -88,9 +88,9 @@ const SingleProduct = ({ product, index }) => {
         <td onClick={openModal} className="listProducts-content-row-item">
           {name}
         </td>
-        <td onClick={openModal} className="listProducts-content-row-item">
+        {/* <td onClick={openModal} className="listProducts-content-row-item">
           {typeProduct}
-        </td>
+        </td> */}
         <td onClick={openModal} className="listProducts-content-row-item">
           {count}
         </td>

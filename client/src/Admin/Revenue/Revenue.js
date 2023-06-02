@@ -128,10 +128,11 @@ export default function Revenue() {
                 <div>
                     <Container className="showlist" fluid>
                         <Row>
+                        {/* <Col > <h2 className="columlist">id</h2></Col> */}
                             <Col > <h2 className="columlist">Serveur</h2></Col>
                             <Col > <h2 className="columlist">Type</h2></Col>
 
-                            <Col > <h2 className="columlist">Prix ​​unitaire</h2></Col>
+                            <Col > <h2 className="columlist">Prix </h2></Col>
                             <Col > <h2 className="columlist">date</h2></Col>
                             <Col > <h2 className="columlist">Annulation</h2></Col>
                            

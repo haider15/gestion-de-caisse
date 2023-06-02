@@ -127,7 +127,7 @@ const AddModal = () => {
   };
   return (
     <><div className="add" onClick={openModal}>
-      <AddIcon />ajout des plat </div>
+      <AddIcon />Ajouter des produits </div>
 
        
 

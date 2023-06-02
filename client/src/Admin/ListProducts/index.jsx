@@ -119,14 +119,14 @@ const ListProducts = () => {
         )}
 
         <AddType />
-        {selectFilter > -1 && (
+        {/* {selectFilter > -1 && (
           <button
             onClick={handleRemoveType}
             className="listProducts-heading-add-product"
           >
             Supprimer cette catégorie
           </button>
-        )}
+        )} */}
         <AddModal />
       </div>
 
@@ -139,9 +139,9 @@ const ListProducts = () => {
               <th className="listProducts-content-row-heading">SKU</th>
               <th className="listProducts-content-row-heading">Produit</th>
               <th className="listProducts-content-row-heading">
-                Famille
+              Quantité
               </th>
-              <th className="listProducts-content-row-heading">Quantité</th>
+              
               <th className="listProducts-content-row-heading">Description</th>
               <th className="listProducts-content-row-heading">Prix</th>
               <th className="listProducts-content-row-heading"></th>

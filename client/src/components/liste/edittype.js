@@ -3,6 +3,7 @@ import { NavLink, useParams,useHistory } from 'react-router-dom'
 import { updatedata } from '../gestion/ContextProvider'
 import ButtonUpload from '../../Admin/ButtonUpload';
 
+import './liste.css';
 const Edittype = () => {
 
     // const [getuserdata, setUserdata] = useState([]);
@@ -94,32 +95,70 @@ const Edittype = () => {
     }
 
     return (
-        <div className="container">
-            <form className="mt-4">
-                <div className="row">
-                    <div class="mb-3 col-lg-6 col-md-6 col-12">
-                        <label for="exampleInputEmail1" class="form-label">Name</label>
-                        <input type="text" value={inpval.name} onChange={setdata} name="name" class="form-control" id="exampleInputEmail1" aria-describedby="imgHelp" />
-                    </div>
-                    <div class="mb-3 col-lg-6 col-md-6 col-12">
-                        <label for="exampleInputPassword1" class="form-label">img</label>
-                        <input type="img" value={inpval.img} onChange={setdata} name="img" class="form-control" id="exampleInputPassword1" />
+        // <div className="container">
+        //     <form className="mt-4">
+        //         <div className="row">
+        //             <div class="mb-3 col-lg-6 col-md-6 col-12">
+        //                 <label for="exampleInputEmail1" class="form-label">Name</label>
+        //                 <input type="text" value={inpval.name} onChange={setdata} name="name" class="form-control" id="exampleInputEmail1" aria-describedby="imgHelp" />
+        //             </div>
+        //             <div class="mb-3 col-lg-6 col-md-6 col-12">
+        //                 <label for="exampleInputPassword1" class="form-label">img</label>
+        //                 <input type="img" value={inpval.img} onChange={setdata} name="img" class="form-control" id="exampleInputPassword1" />
                        
-                    </div>
-                    <ButtonUpload
+        //             </div>
+        //             <ButtonUpload
                  
-                    text="Choisissez une photo"
-                  src={inpval.img}
-                  onChange={setdata} 
-                  name="img"
-                />
+        //             text="Choisissez une photo"
+        //           src={inpval.img}
+        //           onChange={setdata} 
+        //           name="img"
+        //         />
                    
                 
 
-                    <button type="submit" onClick={updateuser} class="btn btn-primary">Submit</button>
-                </div>
-            </form>
+        //             <button type="submit" onClick={updateuser} class="btn btn-primary">Submit</button>
+        //         </div>
+        //     </form>
+        // </div>
+
+
+        <form className="content-center" onSubmit={updateuser}>
+        <div className="input-container-wrap">
+          <div className="input-container-both">
+            <div className="image">
+
+              <img className='image'
+              
+                src={inpval.img}
+                onChange={setdata}
+                // productUpdate={newProduct}
+              />
+            </div>
+          </div>
+          <div className="input-container-both">
+            <div className="input-container">
+              <label htmlFor="" className="input-label">
+              Nom
+              </label>
+              <input
+                className="input-box"
+                onChange={setdata}
+                type="text"
+                name="name"
+                value={inpval.name}
+                id=""
+              />
+            </div>
+          </div>
         </div>
+        <input
+          className="input-box input-box-submit"
+          type="submit"
+          value="modifier"
+        />
+        {/* <button>the modal</button> */}
+      </form>
     )
 }
 

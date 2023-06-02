@@ -60,11 +60,7 @@
     transform: translateY(0);
   }
   .animation {
-    background: linear-gradient(
-      90deg,
-      hsla(29, 92%, 70%, 1) 0%,
-      hsla(0, 87%, 73%, 1) 100%
-    );
+    background: #2d281a
   }
   /* *******************************************Search******************************************************* */
   .grid {
@@ -82,11 +78,7 @@
   .showlist {
     font-size: 10px;
     /* background-color: rgba(110, 184, 0.9); */
-    background: linear-gradient(
-      90deg,
-      hsla(29, 92%, 70%, 1) 0%,
-      hsla(0, 87%, 73%, 1) 100%
-    );
+    background:#2d281a;
     margin-top: 1px;
     margin-bottom: 1px;
     border-right: groove;
@@ -115,11 +107,7 @@
     /* color: red; */
     font-weight: 100;
     font-size: 25px;
-    background: linear-gradient(
-      90deg,
-      hsla(29, 92%, 70%, 1) 0%,
-      hsla(0, 87%, 73%, 1) 100%
-    );
+    background:#2d281a;
     border-radius: 10px;
     letter-spacing: 0.15em;
     padding: 2px 30px;
@@ -265,11 +253,7 @@
     /* color: red; */
     font-weight: 100;
     font-size: 25px;
-    background: linear-gradient(
-      90deg,
-      hsla(29, 92%, 70%, 1) 0%,
-      hsla(0, 87%, 73%, 1) 100%
-    );
+    background: #2d281a;
     border-radius: 10px;
     letter-spacing: 0.15em;
     padding: 2px 30px;
@@ -293,11 +277,7 @@
     /* color: red; */
     font-weight: 100;
     font-size: 25px;
-    background: linear-gradient(
-      90deg,
-      hsla(29, 92%, 70%, 1) 0%,
-      hsla(0, 87%, 73%, 1) 100%
-    );
+    background: #2d281a;
     border-radius: 10px;
     letter-spacing: 0.15em;
     padding: 2px 30px;
@@ -317,11 +297,7 @@
     /* color: red; */
     font-weight: 100;
     font-size: 25px;
-    background: linear-gradient(
-      90deg,
-      hsla(29, 92%, 70%, 1) 0%,
-      hsla(0, 87%, 73%, 1) 100%
-    );
+    background: #2d281a;
     border-radius: 10px;
     letter-spacing: 0.15em;
     padding: 2px 30px;

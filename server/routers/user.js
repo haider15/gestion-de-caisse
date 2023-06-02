@@ -72,7 +72,7 @@ router.get("/",async (req, res) => {
     const users = await User.findOne({email:req.body.email});
     res.status(200).send(users);
   } catch (error) {
-    res.status(404).json({ message: error.stack });
+    res.status(404).json({ message: error  });
   }
 
 })

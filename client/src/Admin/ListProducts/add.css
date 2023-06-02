@@ -1,7 +1,8 @@
 .add {
     text-align: right;
     cursor : pointer;
-    
+    display: flex;
+    align-items: center;
 }
 .add1 {
    

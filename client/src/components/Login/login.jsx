@@ -24,11 +24,18 @@ const Login = () => {
 			navigate.push('/nav/admin');
 		} catch (error) {
 			if (
-				error.response &&
-				error.response.status >= 400 &&
-				error.response.status <= 500
+				
+				error.response.status >= 404
+				
 			) {
-				setError(error.response.data.message);
+				setError(" email invalidé ");
+			}
+			if (
+				error.response &&
+				
+				error.response.status <= 400
+			) {
+				setError("mot  passe invalidé ");
 			}
 		}
 	};

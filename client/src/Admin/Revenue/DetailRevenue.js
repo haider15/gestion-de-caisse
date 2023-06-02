@@ -9,8 +9,8 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 const contentStyle = {
-    height: "80%",
-    width: "85%",
+    height: "70%",
+    width: "50%",
   };
 export default function DetailRevenue(props) {
     const ConfirmOrder = (order => {   
@@ -38,14 +38,15 @@ export default function DetailRevenue(props) {
                 trigger={
                     <Container fluid>
                     <Row className="elementlist">
+                    {/* <Col > <h2 className="element">{props.order._id}</h2></Col> */}
                         <Col > <h2 className="element">{props.order.userName}</h2></Col>
                        
                         <Col > <h2 className="element">{props.order.usingMethod}</h2></Col>
-                        <Col > <h2 className="oderprice">{props.order.totalPrice.toLocaleString()}.000 TND</h2></Col>
+                        <Col > <h2 className="element">{props.order.totalPrice.toLocaleString()}.000 TND</h2></Col>
                         <Col > <h2 className="element">{props.order.paidAt}</h2></Col>
 
                         <Col > <h2 className="element">
-                            {props.order.isPaid ? <FcOk  className="iconRevenue" size={20} color="green"/> : <AiOutlineCloseCircle size={20} color="red"/>}</h2>
+                            {props.order.isPaid ?<AiOutlineCloseCircle size={20} color="red"/>  :<FcOk  className="iconRevenue" size={20} color="green"/> }</h2>
                         </Col>
 
                     </Row>

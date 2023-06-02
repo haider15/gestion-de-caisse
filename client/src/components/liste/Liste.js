@@ -11,9 +11,12 @@ import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import AddType from '../../Admin/ListProducts/AddType';
 
+
+
+
 function Liste() {
-    const [getuserdata, setUserdata] = useState([]);
-    console.log(getuserdata);
+    const [typeProducts, setUserdata] = useState([]);
+    console.log(typeProducts);
 
     // const { udata, setUdata } = useContext(adddata);
 
@@ -42,9 +45,7 @@ function Liste() {
 
         }
     }
-    function addtype() {
-        <AddType />
-      }
+   
     
 
     useEffect(() => {
@@ -78,6 +79,12 @@ function Liste() {
         
 
     }
+    const iconStyle = {
+        color: 'blue', // Set the desired color here
+      };
+      const iconStyle1 = {
+        color: 'red', // Set the desired color here
+      };
     
 
     return (
@@ -93,8 +100,11 @@ function Liste() {
             {/* <div className="panel-content"> */}
             <div className='grid'>
                 <div className='iconManager'><h2>   La gestion Les Familles de Produit  </h2></div> </div>
-                <Link to="ajoutf"> ajout </Link>
+                {/* <AddType /> */}
+                {/* <Aoutf /> */}
             <div className="listProducts-content">
+            {/* <AddType /> */}
+
                 <table className="listProducts-content-table">
                     <thead className="tbody-nth">
                         <tr className="listProducts-content-row-heading-table">
@@ -108,7 +118,7 @@ function Liste() {
                     <tbody>
 
                         {
-                            Object.entries(getuserdata).map((element, id) => {
+                            Object.entries(typeProducts).map((element, id) => {
                                 if(id!=0){
                                 return (
                                     <>
@@ -121,8 +131,8 @@ function Liste() {
 
                                             <td className="d-flex justify-content-between">
                                                 {/* <NavLink to={`view/${element[1]._id}`}> <button className="btn btn-success"><RemoveRedEyeIcon /></button></NavLink> */}
-                                                <NavLink to={`edite/${element[1]._id}`}>  <button className="edit"><CreateIcon color='red' /></button></NavLink>
-                                                <button className="btn btn-danger" onClick={() => deleteuser(element[1]._id)}> <DeleteIcon className='delete' /></button>
+                                                <NavLink to={`edite/${element[1]._id}`}>  <button className="edit"><CreateIcon style={iconStyle} /></button></NavLink>
+                                                <button className="btn btn-danger" onClick={() => deleteuser(element[1]._id)}> <DeleteIcon style={iconStyle1} /></button>
                                             </td>
                                         </tr>
                                     </>

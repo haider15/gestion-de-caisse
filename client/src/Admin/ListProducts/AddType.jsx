@@ -75,12 +75,12 @@ function push(){
   };
   return (
     <>
-    <div className="add" onClick={push}>
+    {/* <div className="add" onClick={push}>
          gestion de famille
-      </div>
+      </div> */}
      <div className="add" onClick={openModal}>
       <AddIcon  >
-      </AddIcon>Ajout de Famille
+      </AddIcon>Ajouter de Famille
       </div>
 
       

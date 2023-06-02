@@ -7,6 +7,7 @@ const ButtonUpload = ({
  
   setProductUpdate,
   productUpdate,
+  setdata
  
 }) => {
   const fileInputRef = useRef();

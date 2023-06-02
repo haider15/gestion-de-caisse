@@ -28,6 +28,7 @@ import { Zoom } from '@mui/material'
 import Liste from './components/liste/Liste'
 import Edittype from './components/liste/edittype'
 import Jour from './Admin/jour/jour'
+import GestSJ from './Admin/gestSJ/gestSJ'
 
 
 function App() {
@@ -60,6 +61,8 @@ function App() {
           <Route path="/type" component={Liste} />
           <Route path="/nav/edite/:id" component={Edittype} />
           <Route path="/jour" component={Jour} />
+          <Route path="/serj" component={GestSJ}/>
+
           <Route path="/nav">
           
             <SideNavBar></SideNavBar>
@@ -82,6 +85,9 @@ function App() {
               </Route>
               <Route path='/nav/jour'>
                <Jour/>
+              </Route>
+              <Route path='/nav/serj'>
+                <GestSJ />
               </Route>
             </Switch>
 

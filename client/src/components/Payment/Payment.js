@@ -35,6 +35,7 @@ const Payment = (props) => {
   const location = useLocation();
   const { cartcontext } = location.state;
   const firstName = JSON.parse(localStorage.getItem("firstName"));
+  
 
   let total = 0;
   let quantity=0;
@@ -190,18 +191,11 @@ const Payment = (props) => {
               <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Numero de Table</Form.Label>
                 <Form.Control
-                  as="select"
+                  type="text"
                   value={table}
                   onChange={handletableChange}
-                >
-                  <option>Sélectionnez le table</option>
-                  <option value="1">01</option>
-                  <option value="2">02</option>
-                  <option value="3">03</option>
-                  <option value="4">04</option>
-                  <option value="5">05</option>
-                  <option value="6">06</option>
-                </Form.Control>
+                
+                />
                 {tableerror ? (
                   <div className="invalid-feedback">
                    ce champ ne peut pas être vide
